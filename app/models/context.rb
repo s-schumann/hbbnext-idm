@@ -3,4 +3,6 @@ class Context < ActiveRecord::Base
 
   has_many :crs
   has_many :udrs, :through => :crs
+
+  accepts_nested_attributes_for :crs
 end

@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
 
   has_many :udrs
   has_many :devices, :through => :udrs
+
+  accepts_nested_attributes_for :udrs
 end
