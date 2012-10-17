@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HbbnextIdm</title>
+  <title>Idm - HBB-Next</title>
+  <link href="/favicon.ico" rel="icon" type="image/x-icon" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= image_tag("hbbnext.png", :alt => "HBB-Next logo") %>
+	<h1>HBB-Next Identity Management</h1>
 
-<%= yield %>
+	<%= render "layouts/navigation" %>
 
-</body>
+	<%= yield %>
+
+	<%= render "layouts/footer" %>
+	</body>
 </html>
