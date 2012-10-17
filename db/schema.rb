@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017142441) do
+ActiveRecord::Schema.define(:version => 20121017194647) do
 
   create_table "contexts", :force => true do |t|
     t.string   "alias"
     t.string   "display_name"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "uuid"
   end
 
   create_table "crs", :force => true do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121017142441) do
     t.integer  "udr_id"
     t.string   "name"
     t.boolean  "active"
+    t.string   "uuid"
   end
 
   create_table "devices", :force => true do |t|
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20121017142441) do
     t.string   "address"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "uuid"
   end
 
   create_table "udrs", :force => true do |t|
@@ -44,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121017142441) do
     t.integer  "device_id"
     t.string   "name"
     t.string   "role"
+    t.string   "uuid"
   end
 
   create_table "users", :force => true do |t|
@@ -53,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20121017142441) do
     t.string   "pin"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "uuid"
   end
 
 end
