@@ -5,8 +5,8 @@
     <th>ID</th>
     <th>Alias</th>
     <th>Display name</th>
-    <th>Users</th>
-    <th>Devices</th>
+    <th>Users*</th>
+    <th>Devices*</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,14 +17,24 @@
     <td><%= context.id %></td>
     <td><%= context.alias %></td>
     <td><%= context.display_name %></td>
-    <td><%= context.udr_ids %></td>
-    <td><%= context.udr_ids %></td>
+    <td>
+      <% context.udrs.each do |relation| %>
+        <%= relation.user_id %>
+     <% end %>
+    </td>
+    <td>
+      <% context.udrs.each do |relation| %>
+        <%= relation.device_id %>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', context %></td>
     <td><%= link_to 'Edit', edit_context_path(context) %></td>
     <td><%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
+
+<p>*..Values may repeat</p>
 
 <br />
 
