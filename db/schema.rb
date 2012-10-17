@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017142137) do
+ActiveRecord::Schema.define(:version => 20121017142441) do
 
   create_table "contexts", :force => true do |t|
     t.string   "alias"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20121017142137) do
     t.integer  "context_id"
     t.integer  "udr_id"
     t.string   "name"
+    t.boolean  "active"
   end
 
   create_table "devices", :force => true do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20121017142137) do
     t.integer  "user_id"
     t.integer  "device_id"
     t.string   "name"
+    t.string   "role"
   end
 
   create_table "users", :force => true do |t|
