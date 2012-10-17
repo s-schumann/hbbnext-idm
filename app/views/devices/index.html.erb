@@ -2,9 +2,11 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Alias</th>
     <th>Display name</th>
     <th>Address</th>
+    <th>Users</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +14,11 @@
 
 <% @devices.each do |device| %>
   <tr>
+    <td><%= device.id %></td>
     <td><%= device.alias %></td>
     <td><%= device.display_name %></td>
     <td><%= device.address %></td>
+    <td><%= device.user_ids %></td>
     <td><%= link_to 'Show', device %></td>
     <td><%= link_to 'Edit', edit_device_path(device) %></td>
     <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>

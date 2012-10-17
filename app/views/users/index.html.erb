@@ -2,10 +2,12 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Alias</th>
     <th>Username</th>
     <th>Password</th>
     <th>Pin</th>
+    <th>Devices</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,10 +15,12 @@
 
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.id %></td>
     <td><%= user.alias %></td>
     <td><%= user.username %></td>
     <td><%= user.password %></td>
     <td><%= user.pin %></td>
+    <td><%= user.device_ids %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
