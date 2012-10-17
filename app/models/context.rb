@@ -1,5 +1,6 @@
 class Context < ActiveRecord::Base
-  attr_accessible :alias, :display_name, :cr_ids, :udr_ids, :uuid
+  attr_accessible :alias, :display_name, :cr_ids, :udr_ids
+  attr_protected :uuid
 
   has_many :crs
   has_many :udrs, :through => :crs

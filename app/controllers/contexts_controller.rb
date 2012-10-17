@@ -42,6 +42,9 @@ class ContextsController < ApplicationController
   def create
     @context = Context.new(params[:context])
 
+    require 'securerandom'
+    @context.uuid = SecureRandom.uuid
+
     respond_to do |format|
       if @context.save
         format.html { redirect_to @context, notice: 'Context was successfully created.' }

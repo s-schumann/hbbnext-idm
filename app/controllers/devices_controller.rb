@@ -42,6 +42,9 @@ class DevicesController < ApplicationController
   def create
     @device = Device.new(params[:device])
 
+    require 'securerandom'
+    @device.uuid = SecureRandom.uuid
+
     respond_to do |format|
       if @device.save
         format.html { redirect_to @device, notice: 'Device was successfully created.' }
