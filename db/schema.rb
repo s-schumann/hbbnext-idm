@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017121241) do
+ActiveRecord::Schema.define(:version => 20121017122523) do
 
   create_table "contexts", :force => true do |t|
     t.string   "alias"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20121017121241) do
   create_table "crs", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "context_id"
+    t.integer  "udr_id"
   end
 
   create_table "devices", :force => true do |t|
