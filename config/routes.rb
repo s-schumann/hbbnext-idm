@@ -1,4 +1,6 @@
 HbbnextIdm::Application.routes.draw do
+  resources :contexts
+
   resources :devices
 
   resources :users
