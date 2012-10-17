@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>ID:</b>
+  <%= @context.id %>
+</p>
+
+<p>
   <b>Alias:</b>
   <%= @context.alias %>
 </p>
@@ -8,7 +13,28 @@
 <p>
   <b>Display name:</b>
   <%= @context.display_name %>
+  </p>
+  
+<p style="font-style:italic">
+  <b>UDR ID:</b>
+  <%= @context.udr_ids %>
 </p>
+
+<p style="font-style:italic">
+  <b>Users*:</b>
+  <% @context.udrs.each do |relation| %>
+    <%= relation.user_id %>
+  <% end %>
+</p>
+
+<p style="font-style:italic">
+  <b>Devices*:</b>
+  <% @context.udrs.each do |relation| %>
+    <%= relation.device_id %>
+  <% end %>
+</p>
+
+<p>*..Values may repeat</p>
 
 
 <%= link_to 'Edit', edit_context_path(@context) %> |
