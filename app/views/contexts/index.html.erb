@@ -5,6 +5,7 @@
     <th>ID</th>
     <th>Alias</th>
     <th>Display name</th>
+    <th>UUID</th>
     <th>Users*</th>
     <th>Devices*</th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= context.id %></td>
     <td><%= context.alias %></td>
     <td><%= context.display_name %></td>
+    <td><%= context.uuid %></td>
     <td>
       <% context.udrs.each do |relation| %>
         <%= relation.user_id %>
