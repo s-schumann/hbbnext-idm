@@ -27,7 +27,7 @@
 
 <p>
   <b>Devices:</b>
-  <%= @user.device_ids %>
+  <%= render :partial => "userdevices", :locals => { :user => @user } %>
 </p>
 
 
