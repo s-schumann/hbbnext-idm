@@ -5,11 +5,9 @@
     <%= f.input :password %>
     <%= f.input :pin %>
     <%= f.input :devices %>
-    <% @user.udrs.each do |udr| %>
-      <%= f.semantic_fields_for udr do |f| %>
-        <%= f.input :role, :as => "select", :label => "#{@user.devices.find(udr.device_id).display_name}" %>
-      <% end %>
-    <% end %> 
+    <%= f.semantic_fields_for :udrs do |u| %>
+       <%= u.inputs :device, :role, :as => "select" %>
+    <% end%>
   <% end %>
 
   <%= f.actions do %>

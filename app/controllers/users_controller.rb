@@ -91,7 +91,10 @@ class UsersController < ApplicationController
       @user.udrs.each do |udr|       
         @user.attributes = {
           :udrs_attributes => [
-            { :id => udr.id, :name => "#{@user.username}:#{@user.devices.find(udr.device_id).display_name}" }
+            { :id => udr.id, 
+              :name => "#{@user.username}:#{@user.devices.find(udr.device_id).display_name}",
+              :role_id => 4
+            }
           ]
         }
       end
