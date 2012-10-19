@@ -1,3 +1,5 @@
 class Roles < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_protected :name, :uuid
+
+  has_many :udrs
 end
