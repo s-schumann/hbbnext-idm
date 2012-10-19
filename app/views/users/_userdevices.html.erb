@@ -1,3 +1,8 @@
 <% user.devices.each do |device| %>
 	<%= device.display_name %>
+	<% user.udrs.each do |udr| %>
+		<% if udr.device_id == device.id %>
+    		(<%= udr.role %>)
+      	<% end %>
+    <% end %>
 <% end %>
