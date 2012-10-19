@@ -8,6 +8,7 @@
     <th>UUID</th>
     <th>Address</th>
     <th>Users</th>
+    <th>Contexts</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,6 +23,9 @@
     <td><%= device.address %></td>
     <td>
         <%= render :partial => "deviceusers", :locals => { :device => device } %>
+    </td>
+    <td>
+        <%= render :partial => "devicecontexts", :locals => { :device => device } %>
     </td>
     <td><%= link_to 'Show', device %></td>
     <td><%= link_to 'Edit', edit_device_path(device) %></td>

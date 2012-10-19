@@ -9,6 +9,7 @@
     <th>Password</th>
     <th>Pin</th>
     <th>Devices</th>
+    <th>Contexts</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,6 +25,9 @@
     <td><%= user.pin %></td>
     <td>
         <%= render :partial => "userdevices", :locals => { :user => user } %>
+    </td>
+    <td>
+        <%= render :partial => "usercontexts", :locals => { :user => user } %>
     </td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

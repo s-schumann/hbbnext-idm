@@ -1,0 +1,5 @@
+<% device.udrs.each do |udr| %>
+	<% udr.contexts.each do |context| %>
+		<%= context.display_name %>
+	<% end %>
+<% end %>
