@@ -47,6 +47,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.save
+        set_cr_name
         format.html { redirect_to @context, notice: 'Context was successfully created.' }
         format.json { render json: @context, status: :created, location: @context }
       else
@@ -63,6 +64,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.update_attributes(params[:context])
+        set_cr_name
         format.html { redirect_to @context, notice: 'Context was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,4 +85,16 @@ class ContextsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def set_cr_name
+      @context.crs.each do |cr|       
+        @context.attributes = {
+          :crs_attributes => [
+            { :id => cr.id, :name => "#{@context.display_name}:#{@context.udrs.find(cr.udr_id).name}" }
+          ]
+        }
+      end
+      @context.update_attributes(params[:context])
+    end
 end
