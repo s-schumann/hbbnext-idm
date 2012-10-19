@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        set_udr_name
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -60,9 +61,10 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        set_udr_name
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,4 +85,16 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def set_udr_name
+      @user.udrs.each do |udr|       
+        @user.attributes = {
+          :udrs_attributes => [
+            { :id => udr.id, :name => "#{@user.username}:#{@user.devices.find(udr.device_id).display_name}" }
+          ]
+        }
+      end
+      @user.update_attributes(params[:user])
+    end
 end

@@ -47,6 +47,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
+        set_udr_name
         format.html { redirect_to @device, notice: 'Device was successfully created.' }
         format.json { render json: @device, status: :created, location: @device }
       else
@@ -63,6 +64,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.update_attributes(params[:device])
+        set_udr_name
         format.html { redirect_to @device, notice: 'Device was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,5 +84,17 @@ class DevicesController < ApplicationController
       format.html { redirect_to devices_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def set_udr_name
+    @device.udrs.each do |udr|       
+      @device.attributes = {
+        :udrs_attributes => [
+          { :id => udr.id, :name => "#{@device.users.find(udr.user_id).username}:#{@device.display_name}" }
+        ]
+      }
+    end
+    @device.update_attributes(params[:device])
   end
 end
