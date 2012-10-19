@@ -6,8 +6,8 @@
     <th>Alias</th>
     <th>Display name</th>
     <th>UUID</th>
-    <th>Users*</th>
-    <th>Devices*</th>
+    <th>Users</th>
+    <th>Devices</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,14 +20,10 @@
     <td><%= context.display_name %></td>
     <td><%= context.uuid %></td>
     <td>
-      <% context.udrs.each do |relation| %>
-        <%= relation.user_id %>
-      <% end %>
+      <%= render :partial => "contextusers", :locals => { :context => context } %>
     </td>
     <td>
-      <% context.udrs.each do |relation| %>
-        <%= relation.device_id %>
-      <% end %>
+      <%= render :partial => "contextdevices", :locals => { :context => context } %>
     </td>
     <td><%= link_to 'Show', context %></td>
     <td><%= link_to 'Edit', edit_context_path(context) %></td>
@@ -35,8 +31,6 @@
   </tr>
 <% end %>
 </table>
-
-<p>*..Values may repeat</p>
 
 <br />
 

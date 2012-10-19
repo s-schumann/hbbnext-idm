@@ -25,21 +25,15 @@
   <%= @context.udr_ids %>
 </p>
 
-<p style="font-style:italic">
+<p>
   <b>Users*:</b>
-  <% @context.udrs.each do |relation| %>
-    <%= relation.user_id %>
-  <% end %>
+  <%= render :partial => "contextusers", :locals => { :context => @context } %>
 </p>
 
-<p style="font-style:italic">
+<p>
   <b>Devices*:</b>
-  <% @context.udrs.each do |relation| %>
-    <%= relation.device_id %>
-  <% end %>
+  <%= render :partial => "contextdevices", :locals => { :context => @context } %>
 </p>
-
-<p>*..Values may repeat</p>
 
 
 <%= link_to 'Edit', edit_context_path(@context) %> |
