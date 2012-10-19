@@ -97,6 +97,9 @@ class UsersController < ApplicationController
             }
           ]
         }
+        if not udr.uuid
+          SecureRandom.uuid
+        end
       end
       @user.update_attributes(params[:user])
     end

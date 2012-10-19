@@ -94,6 +94,9 @@ class DevicesController < ApplicationController
           { :id => udr.id, :name => "#{@device.users.find(udr.user_id).username}:#{@device.display_name}" }
         ]
       }
+      if not udr.uuid
+        SecureRandom.uuid
+      end
     end
     @device.update_attributes(params[:device])
   end
