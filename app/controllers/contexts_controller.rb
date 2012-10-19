@@ -94,6 +94,12 @@ class ContextsController < ApplicationController
             { :id => cr.id, :name => "#{@context.display_name}:#{@context.udrs.find(cr.udr_id).name}" }
           ]
         }
+        if not cr.uuid
+          cr.uuid = SecureRandom.uuid
+        end
+        if not cr.active
+          cr.active = false
+        end
       end
       @context.update_attributes(params[:context])
     end
