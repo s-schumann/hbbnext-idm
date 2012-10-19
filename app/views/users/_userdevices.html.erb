@@ -2,7 +2,7 @@
 	<%= device.display_name %>
 	<% user.udrs.each do |udr| %>
 		<% if udr.device_id == device.id %>
-    		(<%= udr.role %>)
+    		(<%= user.roles.find(udr.role_id).name %>)
       	<% end %>
     <% end %>
 <% end %>

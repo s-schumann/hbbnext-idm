@@ -1,12 +1,12 @@
 <% device.users.each do |user| %>
 	<% device.udrs.each do |udr| %>
 		<% if udr.user_id == user.id %>
-			<% if udr.role == "admin" %>
+			<% if udr.role_id == 1 %>
 	    		<b><%= user.username %></b>
-	    		(<%= udr.role %>)
+	    		(<%= user.roles.find(udr.role_id).name %>)
 	    	<% else %>
 	    		<%= user.username %>
-	    		(<%= udr.role %>)
+	    		(<%= user.roles.find(udr.role_id).name %>)
     		<% end %>
     	<% end %>
     <% end %>
