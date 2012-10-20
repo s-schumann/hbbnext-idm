@@ -1,4 +1,6 @@
 HbbnextIdm::Application.routes.draw do
+  get "sessions/new"
+
   resources :consumers
 
   resources :contexts
