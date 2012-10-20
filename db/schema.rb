@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019143903) do
+ActiveRecord::Schema.define(:version => 20121020161051) do
+
+  create_table "consumers", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "contexts", :force => true do |t|
     t.string   "alias"
@@ -53,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20121019143903) do
     t.integer  "user_id"
     t.integer  "device_id"
     t.string   "name"
-    t.string   "role"
     t.string   "uuid"
     t.integer  "role_id"
   end
