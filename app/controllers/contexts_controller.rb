@@ -1,4 +1,7 @@
 class ContextsController < ApplicationController
+
+  before_filter :authorize, only: [:new, :create, :edit, :update]
+
   # GET /contexts
   # GET /contexts.json
   def index
