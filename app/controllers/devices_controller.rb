@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   
-  before_filter :authorize, only: [:new, :create, :edit, :update]
+  before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /devices
   # GET /devices.json

@@ -10,6 +10,7 @@
 <body>
 	<%= image_tag("hbbnext.png", :alt => "HBB-Next logo") %>
 	<h1>HBB-Next Identity Management</h1>
+	<p>
 	    <% if current_consumer %>
 	      Logged in as <%= current_consumer.email %>.
 	      <%= link_to "Log Out", logout_path %>
@@ -17,7 +18,8 @@
 	      <%= link_to "Sign Up", signup_path %> or
 	      <%= link_to "Log In", login_path %>
 	    <% end %>
-    
+	</p>
+
 	<%= render "layouts/navigation" %>
 
 	<%= yield %>

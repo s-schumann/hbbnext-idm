@@ -1,6 +1,6 @@
 class ContextsController < ApplicationController
 
-  before_filter :authorize, only: [:new, :create, :edit, :update]
+  before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /contexts
   # GET /contexts.json
