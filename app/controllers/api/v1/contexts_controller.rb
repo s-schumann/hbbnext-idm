@@ -16,22 +16,22 @@ module Api
       end
       
       # POST /contexts.json
-      #def create
+      def create
       #  @context = Context.create(params[:context])
       #  respond_with @context
-      #end
+      end
       
       # PUT /contexts/1.json
-      #def update
+      def update
       #  @context = Context.update(params[:id], params[:contexts])
       #  respond_with @context
-      #end
+      end
       
       # DELETE /contexts/1.json
-      #def destroy
+      def destroy
       #  @context = Context.destroy(params[:id])
       #  respond_with @context
-      #end
+      end
     end
   end
 end

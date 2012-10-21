@@ -16,22 +16,22 @@ module Api
       end
       
       # POST /users.json
-      #def create
+      def create
       #  @user = User.create(params[:user])
       #  respond_with @user
-      #end
+      end
       
       # PUT /users/1.json
-      #def update
+      def update
       #  @user = User.update(params[:id], params[:users])
       #  respond_with @user
-      #end
+      end
       
       # DELETE /users/1.json
-      #def destroy
+      def destroy
       #  @user = User.destroy(params[:id])
       #  respond_with @user
-      #end
+      end
     end
   end
 end
