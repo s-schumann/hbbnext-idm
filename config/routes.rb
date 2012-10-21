@@ -10,17 +10,19 @@ HbbnextIdm::Application.routes.draw do
 
   resources :consumers
 
-  resources :contexts
-
-  resources :devices
-
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :users
+      resources :devices
+      resources :contexts
     end
   end
-  
+
   resources :users
+
+  resources :devices
+
+  resources :contexts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
