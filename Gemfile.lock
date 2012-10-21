@@ -48,8 +48,6 @@ GEM
       actionpack (>= 3.0)
     hike (1.2.1)
     i18n (0.6.1)
-    jbuilder (0.8.2)
-      activesupport (>= 3.0.0)
     journey (1.0.4)
     json (1.7.5)
     mail (2.4.4)
@@ -60,6 +58,9 @@ GEM
     multi_json (1.3.6)
     mysql2 (0.3.11)
     polyglot (0.3.3)
+    rabl (0.7.3)
+      activesupport (>= 2.3.14)
+      multi_json (~> 1.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -112,8 +113,8 @@ DEPENDENCIES
   cloudfoundry-jquery-rails
   coffee-rails (~> 3.2.1)
   formtastic
-  jbuilder
   mysql2
+  rabl
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
