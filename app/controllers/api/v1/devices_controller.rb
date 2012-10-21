@@ -17,17 +17,20 @@ module Api
       
       # POST /devices.json
       def create
-        respond_with Device.create(params[:device])
+        @device = Device.create(params[:device])
+        respond_with @device
       end
       
       # PUT /devices/1.json
       def update
-        respond_with Device.update(params[:id], params[:devices])
+        @device = Device.update(params[:id], params[:devices])
+        respond_with @device
       end
       
       # DELETE /devices/1.json
       def destroy
-        respond_with Device.destroy(params[:id])
+        @device = Device.destroy(params[:id])
+        respond_with @device
       end
     end
   end
