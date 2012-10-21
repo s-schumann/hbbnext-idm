@@ -19,18 +19,21 @@ module Api
       def create
       #  @device = Device.create(params[:device])
       #  respond_with @device
+        head :forbidden
       end
       
       # PUT /devices/1.json
       def update
       #  @device = Device.update(params[:id], params[:devices])
       #  respond_with @device
+        head :forbidden
       end
       
       # DELETE /devices/1.json
       def destroy
       #  @device = Device.destroy(params[:id])
       #  respond_with @device
+        head :forbidden
       end
     end
   end
