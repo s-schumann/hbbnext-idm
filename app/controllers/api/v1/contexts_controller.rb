@@ -11,7 +11,8 @@ module Api
       
       # GET /contexts/1.json
       def show
-        respond_with Context.find(params[:id])
+        @context = Context.find(params[:id])
+        respond_with @context
       end
       
       # POST /contexts.json

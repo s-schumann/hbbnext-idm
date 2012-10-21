@@ -11,7 +11,8 @@ module Api
       
       # GET /devices/1.json
       def show
-        respond_with Device.find(params[:id])
+        @device = Device.find(params[:id])
+        respond_with @device
       end
       
       # POST /devices.json

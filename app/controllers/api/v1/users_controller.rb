@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      respond_to :json
+      respond_to :json 
       
       # GET /users.json
       def index
@@ -11,7 +11,8 @@ module Api
       
       # GET /users/1.json
       def show
-        respond_with User.find(params[:id])
+      	@user = User.find(params[:id])
+        respond_with @user
       end
       
       # POST /users.json
