@@ -13,7 +13,8 @@
 	<p>
 	    <% if current_consumer %>
 	      Logged in as <%= current_consumer.email %>.
-	      <%= link_to "Log Out", logout_path %>
+	      <%= link_to "Log Out", logout_path %><br />
+	      Access token: <%= current_consumer.access_token %>
 	    <% else %>
 	      <%= link_to "Log In", login_path %>
 	    <% end %>

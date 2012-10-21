@@ -1,6 +1,7 @@
 module Api
   module V1
     class DevicesController < ApplicationController
+      before_filter :restrict_access
       respond_to :json
       
       # GET /devices.json
@@ -34,6 +35,11 @@ module Api
       #  @device = Device.destroy(params[:id])
       #  respond_with @device
         head :forbidden
+      end
+      private
+      def restrict_access
+        api_key = Consumer.find_by_access_token(params[:access_token])
+        head :unauthorized unless api_key
       end
     end
   end
