@@ -16,6 +16,7 @@ HbbnextIdm::Application.routes.draw do
       resources :devices
       resources :contexts
       get 'resources', to: 'resources#index', as: 'resources'
+      get 'resources/resources', to: 'resources#index', as: 'resources'
       get 'resources/users', to: 'resources/users#index', as: 'resources/users'
       get 'resources/devices', to: 'resources/devices#index', as: 'resources/devices'
       get 'resources/contexts', to: 'resources/contexts#index', as: 'resources/contexts'
