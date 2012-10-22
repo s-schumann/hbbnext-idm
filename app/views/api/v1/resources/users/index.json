@@ -38,5 +38,18 @@
                 }
             ]
         }
- 	]
+ 	],
+ 	"models": {
+        "User": {
+            "id": "User",
+            "properties": {
+                "id": {
+                    "type": "long"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }
