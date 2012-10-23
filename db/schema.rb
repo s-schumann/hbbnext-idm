@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021204634) do
+ActiveRecord::Schema.define(:version => 20121023052449) do
 
   create_table "consumers", :force => true do |t|
     t.string   "email"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(:version => 20121021204634) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "uuid"
+    t.string   "mmi_voice"
+    t.string   "mmi_face"
+    t.string   "gender"
+    t.date     "birthday"
+    t.string   "email"
   end
 
 end
