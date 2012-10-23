@@ -18,5 +18,12 @@ node(:mmi) {
 }
 
 child(@user => :links) {
-	attributes :udr_ids, :device_ids, :role_ids
+	@user.udrs.each do |udr| 
+		child(udr.contexts => :contexts) do |context| 
+			attributes :id => :id, :display_name => :name
+		end 
+	end
+	child(@user.devices => :devices) do	
+		attributes :id => :id, :display_name => :name
+	end
 }
