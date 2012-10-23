@@ -11,6 +11,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @contexts.each do |context| %>
@@ -28,6 +29,7 @@
     <td><%= link_to 'Show', context %></td>
     <td><%= link_to 'Edit', edit_context_path(context) %></td>
     <td><%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><a href="http://localhost:3000/api/<%= $currentVersion %>/contexts/<%= context.id %>?access_token=<%= current_consumer.access_token %>">API</a></td>
   </tr>
 <% end %>
 </table>

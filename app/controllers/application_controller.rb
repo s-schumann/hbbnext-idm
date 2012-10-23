@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   $currentTime = Time.now
-  $currentVersion = 1
+  $currentVersion = "v1"
 
   private
 	def current_consumer
