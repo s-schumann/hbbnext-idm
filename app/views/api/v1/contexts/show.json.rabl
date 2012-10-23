@@ -1,6 +1,6 @@
 object @context
 attributes :id, :alias, :display_name, :uuid
 
-node(:links) {
+child(@context => :links) {
 	attributes :cr_ids, :udr_ids
 }
