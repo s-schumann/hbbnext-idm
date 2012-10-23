@@ -26,6 +26,31 @@
 </p>
 
 <p>
+  <b>Birthday:</b>
+  <%= @user.birthday %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <b>E-Mail:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Face avg:</b>
+  <%= @user.mmi_face %>
+</p>
+
+<p>
+  <b>Voice avg:</b>
+  <%= @user.mmi_voice %>
+</p>
+
+<p>
   <b>Devices:</b>
   <%= render :partial => "userdevices", :locals => { :user => @user } %>
 </p>

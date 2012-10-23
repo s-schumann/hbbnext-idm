@@ -4,6 +4,11 @@
     <%= f.input :username %>
     <%= f.input :password %>
     <%= f.input :pin %>
+    <%= f.input :birthday %>
+    <%= f.input :gender %>
+    <%= f.input :email %>
+    <%= f.input :mmi_face %>
+    <%= f.input :mmi_voice %>
     <%= f.input :devices %>
     <%= f.semantic_fields_for :udrs do |u| %>
        <%= u.inputs :device, :role, :as => "select" %>
