@@ -18,12 +18,16 @@ node(:mmi) {
 }
 
 child(@user => :links) {
-	@user.udrs.each do |udr| 
-		child(udr.contexts => :contexts) do |context| 
-			attributes :id => :id, :display_name => :name
-		end 
+	node :contexts do
+		@user.udrs.map { |udr| {
+			:udr => udr.contexts.map { |c| {
+				:id => c.id, :name => c.display_name
+			}}
+		}}
 	end
-	child(@user.devices => :devices) do	
-		attributes :id => :id, :display_name => :name
+	node :devices do
+		@user.devices.map { |d| {	
+			:id => d.id, :display_name => d.display_name, :href => "http://#{$currentDomain}/api/#{$currentVersion}/devices/#{d.id}"
+		}}
 	end
 }

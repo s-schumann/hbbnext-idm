@@ -5,11 +5,13 @@ child(@device => :links) {
 	node :contexts do
 		@device.udrs.map { |udr| {
 			:udr => udr.contexts.map { |c| {
-				:name => c.display_name
+				:id => c.id, :name => c.display_name
 			}}
 		}}
 	end
-	child(@device.users => :users) do	
-		attributes :id => :id, :username => :name
+	node :users do	
+		@device.users.map { |u| {	
+			:id => u.id, :username => u.username, :href => "http://#{$currentDomain}/api/#{$currentVersion}/users/#{u.id}"
+		}}
 	end
 }
