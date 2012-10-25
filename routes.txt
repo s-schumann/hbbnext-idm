@@ -1,0 +1,73 @@
+            welcome_index GET    /welcome/index(.:format)              welcome#index
+                   signup GET    /signup(.:format)                     consumers#new
+                    login GET    /login(.:format)                      sessions#new
+                   logout GET    /logout(.:format)                     sessions#destroy
+                 sessions GET    /sessions(.:format)                   sessions#index
+                          POST   /sessions(.:format)                   sessions#create
+              new_session GET    /sessions/new(.:format)               sessions#new
+             edit_session GET    /sessions/:id/edit(.:format)          sessions#edit
+                  session GET    /sessions/:id(.:format)               sessions#show
+                          PUT    /sessions/:id(.:format)               sessions#update
+                          DELETE /sessions/:id(.:format)               sessions#destroy
+                consumers GET    /consumers(.:format)                  consumers#index
+                          POST   /consumers(.:format)                  consumers#create
+             new_consumer GET    /consumers/new(.:format)              consumers#new
+            edit_consumer GET    /consumers/:id/edit(.:format)         consumers#edit
+                 consumer GET    /consumers/:id(.:format)              consumers#show
+                          PUT    /consumers/:id(.:format)              consumers#update
+                          DELETE /consumers/:id(.:format)              consumers#destroy
+            swagger_index GET    /swagger(.:format)                    swagger#index
+                          POST   /swagger(.:format)                    swagger#create
+              new_swagger GET    /swagger/new(.:format)                swagger#new
+             edit_swagger GET    /swagger/:id/edit(.:format)           swagger#edit
+                  swagger GET    /swagger/:id(.:format)                swagger#show
+                          PUT    /swagger/:id(.:format)                swagger#update
+                          DELETE /swagger/:id(.:format)                swagger#destroy
+             api_v1_users GET    /api/v1/users(.:format)               api/v1/users#index {:format=>"json"}
+                          POST   /api/v1/users(.:format)               api/v1/users#create {:format=>"json"}
+          new_api_v1_user GET    /api/v1/users/new(.:format)           api/v1/users#new {:format=>"json"}
+         edit_api_v1_user GET    /api/v1/users/:id/edit(.:format)      api/v1/users#edit {:format=>"json"}
+              api_v1_user GET    /api/v1/users/:id(.:format)           api/v1/users#show {:format=>"json"}
+                          PUT    /api/v1/users/:id(.:format)           api/v1/users#update {:format=>"json"}
+                          DELETE /api/v1/users/:id(.:format)           api/v1/users#destroy {:format=>"json"}
+           api_v1_devices GET    /api/v1/devices(.:format)             api/v1/devices#index {:format=>"json"}
+                          POST   /api/v1/devices(.:format)             api/v1/devices#create {:format=>"json"}
+        new_api_v1_device GET    /api/v1/devices/new(.:format)         api/v1/devices#new {:format=>"json"}
+       edit_api_v1_device GET    /api/v1/devices/:id/edit(.:format)    api/v1/devices#edit {:format=>"json"}
+            api_v1_device GET    /api/v1/devices/:id(.:format)         api/v1/devices#show {:format=>"json"}
+                          PUT    /api/v1/devices/:id(.:format)         api/v1/devices#update {:format=>"json"}
+                          DELETE /api/v1/devices/:id(.:format)         api/v1/devices#destroy {:format=>"json"}
+          api_v1_contexts GET    /api/v1/contexts(.:format)            api/v1/contexts#index {:format=>"json"}
+                          POST   /api/v1/contexts(.:format)            api/v1/contexts#create {:format=>"json"}
+       new_api_v1_context GET    /api/v1/contexts/new(.:format)        api/v1/contexts#new {:format=>"json"}
+      edit_api_v1_context GET    /api/v1/contexts/:id/edit(.:format)   api/v1/contexts#edit {:format=>"json"}
+           api_v1_context GET    /api/v1/contexts/:id(.:format)        api/v1/contexts#show {:format=>"json"}
+                          PUT    /api/v1/contexts/:id(.:format)        api/v1/contexts#update {:format=>"json"}
+                          DELETE /api/v1/contexts/:id(.:format)        api/v1/contexts#destroy {:format=>"json"}
+         api_v1_resources GET    /api/v1/resources(.:format)           api/v1/resources#index {:format=>"json"}
+         api_v1_resources GET    /api/v1/resources/resources(.:format) api/v1/resources#index {:format=>"json"}
+   api_v1_resources_users GET    /api/v1/resources/users(.:format)     api/v1/resources/users#index {:format=>"json"}
+ api_v1_resources_devices GET    /api/v1/resources/devices(.:format)   api/v1/resources/devices#index {:format=>"json"}
+api_v1_resources_contexts GET    /api/v1/resources/contexts(.:format)  api/v1/resources/contexts#index {:format=>"json"}
+                    users GET    /users(.:format)                      users#index
+                          POST   /users(.:format)                      users#create
+                 new_user GET    /users/new(.:format)                  users#new
+                edit_user GET    /users/:id/edit(.:format)             users#edit
+                     user GET    /users/:id(.:format)                  users#show
+                          PUT    /users/:id(.:format)                  users#update
+                          DELETE /users/:id(.:format)                  users#destroy
+                  devices GET    /devices(.:format)                    devices#index
+                          POST   /devices(.:format)                    devices#create
+               new_device GET    /devices/new(.:format)                devices#new
+              edit_device GET    /devices/:id/edit(.:format)           devices#edit
+                   device GET    /devices/:id(.:format)                devices#show
+                          PUT    /devices/:id(.:format)                devices#update
+                          DELETE /devices/:id(.:format)                devices#destroy
+                 contexts GET    /contexts(.:format)                   contexts#index
+                          POST   /contexts(.:format)                   contexts#create
+              new_context GET    /contexts/new(.:format)               contexts#new
+             edit_context GET    /contexts/:id/edit(.:format)          contexts#edit
+                  context GET    /contexts/:id(.:format)               contexts#show
+                          PUT    /contexts/:id(.:format)               contexts#update
+                          DELETE /contexts/:id(.:format)               contexts#destroy
+                     root        /                                     welcome#index
