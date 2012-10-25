@@ -2,5 +2,55 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.1",
   "basePath": "http://localhost:3000/api/v1/resources",
-  "resourcePath": "/devices"
+  "resourcePath": "/devices",
+
+  "apis": [
+        {
+            "path": "/devices/{userId}",
+            "description": "Operations about devices",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Find device by ID",
+                    "notes": "Returns a device based on ID",
+                    "responseClass": "Device",
+                    "nickname": "getDeviceById",
+                    "parameters": [
+                        {
+                            "name": "deviceId",
+                            "description": "ID of device that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Device not found"
+                        }
+                    ]
+                }
+            ]
+        }
+ 	],
+ 	"models": {
+        "Device": {
+            "id": "Device",
+            "properties": {
+                "id": {
+                    "type": "long"
+                },
+                "display_name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }
+
