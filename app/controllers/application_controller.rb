@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   $currentTime = Time.now
   $currentVersion = "v1"
+  $currentRelease = "1.0"
   $currentDomain = "hbbnext.ngidm.org"
 
   private
