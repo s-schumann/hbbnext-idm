@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   $currentTime = Time.now
   $currentVersion = "v1"
-  $currentRelease = "1.0"
+  $currentRelease = "1.0.0" # X.Y.Z  X-LAST milestone (min. 1), in line with API, Y-release, Z-increment
   $currentDomain = "hbbnext.ngidm.org"
 
   private
