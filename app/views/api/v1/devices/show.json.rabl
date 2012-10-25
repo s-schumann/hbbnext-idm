@@ -2,10 +2,12 @@ object @device
 attributes :id, :alias, :display_name, :address, :uuid
 
 child(@device => :links) {
-	@device.udrs.each do |udr| 
-		child(udr.contexts => :contexts) do |context| 
-			attributes :id => :id, :display_name => :name
-		end 
+	node :contexts do
+		@device.udrs.map { |udr| {
+			:udr => udr.contexts.map { |c| {
+				:name => c.display_name
+			}}
+		}}
 	end
 	child(@device.users => :users) do	
 		attributes :id => :id, :username => :name
