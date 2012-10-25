@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   $currentTime = Time.now
   $currentVersion = "v1"
+  $currentDomain = "hbbnext.ngidm.org"
 
   private
 	def current_consumer

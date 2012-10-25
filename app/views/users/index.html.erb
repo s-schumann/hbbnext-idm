@@ -43,7 +43,7 @@
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><a href="http://localhost:3000/api/<%= $currentVersion %>/users/<%= user.id %>?access_token=<%= current_consumer.access_token %>">API</a></td>
+    <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/users/<%= user.id %>?access_token=<%= current_consumer.access_token %>">API</a></td>
   </tr>
 <% end %>
 </table>
