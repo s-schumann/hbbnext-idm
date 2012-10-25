@@ -2,8 +2,7 @@
 #  ENV['HTTP_USER'] = 'testuser'
 #  ENV['HTTP_PASS'] = 'testpass'
 #end
-if Rails.env.production
-	$currentDomain = "hbbnext.ngidm.org"
-else
+$currentDomain = "hbbnext.ngidm.org"
+unless Rails.env.production?
 	$currentDomain = "localhost:3000"
 end
