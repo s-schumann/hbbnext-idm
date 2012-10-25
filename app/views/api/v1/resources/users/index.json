@@ -6,6 +6,19 @@
 
   "apis": [
         {
+            "path": "/users",
+            "description": "Operations about users",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all users",
+                    "notes": "Returns all users",
+                    "responseClass": "User",
+                    "nickname": "getUsersById"
+                }
+            ]
+        },
+        {
             "path": "/users/{userId}",
             "description": "Operations about users",
             "operations": [
@@ -46,8 +59,38 @@
                 "id": {
                     "type": "long"
                 },
+                "alias": {
+                    "type": "string"
+                },
                 "username": {
                     "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "pin": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "voice": {
+                    "type": "string"
+                },
+                "face": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "object"
                 }
             }
         }
