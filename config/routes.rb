@@ -10,6 +10,8 @@ HbbnextIdm::Application.routes.draw do
 
   resources :consumers
 
+  resources :swagger
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :users

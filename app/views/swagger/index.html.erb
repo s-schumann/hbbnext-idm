@@ -1,18 +1,15 @@
-<html>
-<head>
-    <title>HBB-Next IdM Swagger UI</title>
+<% content_for :head do %>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-    <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
-    <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
-    <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
-    <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
-    <script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
-    <script src='lib/handlebars.runtime-1.0.0.beta.6.js' type='text/javascript'></script>
-    <script src='lib/underscore-min.js' type='text/javascript'></script>
-    <script src='lib/backbone-min.js' type='text/javascript'></script>
-    <script src='lib/swagger.js' type='text/javascript'></script>
-    <script src='swagger-ui.js' type='text/javascript'></script>
-
+    <link href='/swagger/css/swagger.css' media='screen' rel='stylesheet' type='text/css'/>
+    <script src='/swagger/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/jquery.slideto.min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/jquery.wiggle.min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/handlebars.runtime-1.0.0.beta.6.js' type='text/javascript'></script>
+    <script src='/swagger/lib/underscore-min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/backbone-min.js' type='text/javascript'></script>
+    <script src='/swagger/lib/swagger.js' type='text/javascript'></script>
+    <script src='/swagger/lib/swagger-ui.js' type='text/javascript'></script>
     <style type="text/css">
         .swagger-ui-wrap {
             max-width: 960px;
@@ -42,8 +39,8 @@
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://hbbnext.ngidm.org/api/v1/resources",
-                apiKey:"3aba961559f9000a097ff94e2433f23d",
+                discoveryUrl:"http://<%= $currentDomain %>/api/<%= $currentVersion %>/resources",
+                apiKey:"<%= current_consumer.access_token %>",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete']
@@ -53,10 +50,9 @@
         });
 
     </script>
-</head>
+<% end %>
 
-<body>
-<div id='header'>
+<div id='header' style='margin:25px;'>
     <div class="swagger-ui-wrap">
         <a id="logo" href="http://swagger.wordnik.com">swagger</a>
 
@@ -76,7 +72,3 @@
 <div id="swagger-ui-container" class="swagger-ui-wrap">
 
 </div>
-
-</body>
-
-</html>
