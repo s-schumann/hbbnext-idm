@@ -6,6 +6,19 @@
 
   "apis": [
         {
+            "path": "/devices",
+            "description": "Operations about devices",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all devices",
+                    "notes": "Returns all devices",
+                    "responseClass": "Device",
+                    "nickname": "getDevicesById"
+                }
+            ]
+        },
+        {
             "path": "/devices/{deviceId}",
             "description": "Operations about devices",
             "operations": [
@@ -46,11 +59,19 @@
                 "id": {
                     "type": "long"
                 },
+                "alias": {
+                    "type": "string"
+                },
                 "display_name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "uuid": {
                     "type": "string"
                 }
             }
         }
     }
 }
-

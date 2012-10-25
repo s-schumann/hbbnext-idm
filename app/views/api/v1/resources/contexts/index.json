@@ -6,6 +6,19 @@
 
   "apis": [
         {
+            "path": "/contexts",
+            "description": "Operations about contexts",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all contexts",
+                    "notes": "Returns all contexts",
+                    "responseClass": "Context",
+                    "nickname": "getContextsById"
+                }
+            ]
+        },
+        {
             "path": "/contexts/{contextId}",
             "description": "Operations about contexts",
             "operations": [
@@ -46,11 +59,16 @@
                 "id": {
                     "type": "long"
                 },
+                "alias": {
+                    "type": "string"
+                },
                 "display_name": {
+                    "type": "string"
+                },
+                "uuid": {
                     "type": "string"
                 }
             }
         }
     }
 }
-
