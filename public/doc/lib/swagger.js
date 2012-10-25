@@ -23,7 +23,7 @@
       if (options.debug != null) {
         this.debug = options.debug;
       }
-      this.apiKeyName = options.apiKeyName != null ? options.apiKeyName : 'api_key';
+      this.apiKeyName = options.apiKeyName != null ? options.apiKeyName : 'access_token';
       if (options.apiKey != null) {
         this.api_key = options.apiKey;
       }
