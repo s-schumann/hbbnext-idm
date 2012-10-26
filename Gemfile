@@ -41,3 +41,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'formtastic'
 
 gem 'rabl'
+
+gem 'newrelic_rpm'
