@@ -1,0 +1,5 @@
+<div id="formroles" class="radios" style="display:none">
+<%= f.semantic_fields_for :udrs do |d| %>
+   <%= d.inputs :user, :role, :as => "select" %>
+<% end%>
+</div>

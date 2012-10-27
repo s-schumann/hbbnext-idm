@@ -3,10 +3,8 @@
     <%= f.input :alias %>
     <%= f.input :display_name %>
     <%= f.input :address %>
-    <%= f.input :users %>
-    <%= f.semantic_fields_for :udrs do |d| %>
-       <%= d.inputs :user, :role, :as => "select" %>
-    <% end%>
+    <%= render "formusers", :f => f %>
+    <%= render "formroles", :f => f %>
   <% end %>
 
   <%= f.actions do %>

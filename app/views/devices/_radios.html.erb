@@ -1,0 +1,16 @@
+<script type="text/javascript"charset="UTF-8">
+	$(document).ready(function(){ 
+		$("input[name$='edit']").click(function() {
+			var tmp = $(this).val();
+			$("div.radios").hide();
+			$("#"+tmp).show();
+		}); 
+	});
+</script>
+<p>
+	Edit:<br />
+	<div id="radios">
+		<input type="radio" name="edit" value="formusers" checked> Users<br />
+		<input type="radio" name="edit" value="formroles"> Roles<br />
+	</div>
+</p>
