@@ -18,12 +18,10 @@ node(:mmi) {
 }
 
 child(@user => :links) {
-	node :contexts do
-		@user.udrs.map { |udr| {
-			:udr => udr.contexts.map { |c| {
-				:id => c.id, :name => c.display_name
-			}}
-		}}
+	node(:contexts) do
+	@cids.uniq.each.map { |cid| {
+		:id => Context.find(cid).id, :name => Context.find(cid).display_name, :href => api_v1_context_url(Context.find(cid))
+	}}	
 	end
 	node :devices do
 		@user.devices.map { |d| {	

@@ -13,7 +13,15 @@ module Api
       # GET /users/1.json
       def show
       	@user = User.find(params[:id])
-        respond_with @user
+
+        @cids = []
+        @user.udrs.each do |udr|
+          udr.contexts.each do |context|
+            @cids.push(context.id)
+          end
+        end
+        
+        respond_with @user, @cids
       end
       
       # POST /users.json
