@@ -13,7 +13,15 @@ module Api
       # GET /devices/1.json
       def show
         @device = Device.find(params[:id])
-        respond_with @device
+
+        @cids = []
+        @device.udrs.each do |udr|
+          udr.contexts.each do |context|
+            @cids.push(context.id)
+          end
+        end
+
+        respond_with @device, @cids
       end
       
       # POST /devices.json
