@@ -7,10 +7,13 @@
 <p>The project provides the following information:
 	<ul>
 		<li><a href="http://<%= $currentDomain %>/swagger">API access</a></li>
-		<li><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/resources">Resource description</a></li>
-		<li><a href="https://github.com/s-schumann/hbbnext-idm">Source Code</a></li>
-		<li><a href="https://github.com/s-schumann/hbbnext-idm/issues">Issue tracker</a></li>
-		<li><a href="https://github.com/s-schumann/hbbnext-idm/wiki">Wiki</a></li>
+		<li>Swagger resource description</li>
+		<ul>
+			<li><a href="<%= api_v1_resources_url %>">Resources</a></li>
+			<li><a href="<%= api_v1_resources_users_url %>">Users</a></li>
+			<li><a href="<%= api_v1_resources_devices_url %>">Devices</a></li>
+			<li><a href="<%= api_v1_resources_contexts_url %>">Contexts</a></li>
+		</ul>
 	</ul>
 </p>
 
