@@ -1,6 +1,5 @@
 collection @devices
-
-extends "api/v1/devices/show"
+attributes :id, :alias
 
 node(:web_url) {
 	|device| device_url(device)

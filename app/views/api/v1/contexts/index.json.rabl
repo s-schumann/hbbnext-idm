@@ -1,6 +1,5 @@
 collection @contexts
-
-extends "api/v1/contexts/show"
+attributes :id, :alias
 
 node(:web_url) {
 	|context| context_url(context)

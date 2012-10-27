@@ -1,6 +1,5 @@
 collection @users
-
-extends "api/v1/users/show"
+attributes :id, :alias, :username
 
 node(:web_url) {
 	|user| user_url(user)
