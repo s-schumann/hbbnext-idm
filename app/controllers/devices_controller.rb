@@ -76,20 +76,20 @@ class DevicesController < ApplicationController
   end
 
   private
-  def set_udr_name
-    @device.udrs.each do |udr|       
-      @device.attributes = {
-        :udrs_attributes => [
-          { :id => udr.id, 
-            :name => "#{@device.users.find(udr.user_id).username}:#{@device.display_name}",
-            :role_id => 4
-          }
-        ]
-      }
-      if not udr.uuid
-        udr.uuid = SecureRandom.uuid
+    def set_udr_name
+      @device.udrs.each do |udr|       
+        @device.attributes = {
+          :udrs_attributes => [
+            { :id => udr.id, 
+              :name => "#{@device.users.find(udr.user_id).username}:#{@device.display_name}",
+              :role_id => 4
+            }
+          ]
+        }
+        if not udr.uuid
+          udr.uuid = SecureRandom.uuid
+        end
       end
+      @device.update_attributes(params[:device])
     end
-    @device.update_attributes(params[:device])
-  end
 end
