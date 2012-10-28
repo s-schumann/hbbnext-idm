@@ -26,9 +26,13 @@ module Api
       
       # POST /devices.json
       def create
-      #  @device = Device.create(params[:device])
-      #  respond_with @device
-        head :forbidden
+        @device = Device.new(params[:device])
+        @device.uuid = SecureRandom.uuid
+        if @device.save
+          respond_with @device, status: :created, location: @device
+        else
+          render json: @device.errors, status: :unprocessable_entity
+        end
       end
       
       # PUT /devices/1.json

@@ -18,9 +18,13 @@ module Api
       
       # POST /contexts.json
       def create
-      #  @context = Context.create(params[:context])
-      #  respond_with @context
-        head :forbidden
+        @context = Context.new(params[:context])
+        @context.uuid = SecureRandom.uuid
+        if @context.save
+          respond_with @context, status: :created, location: @context
+        else
+          render json: @context.errors, status: :unprocessable_entity
+        end
       end
       
       # PUT /contexts/1.json

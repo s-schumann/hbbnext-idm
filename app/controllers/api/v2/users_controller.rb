@@ -26,9 +26,13 @@ module Api
       
       # POST /users.json
       def create
-      #  @user = User.create(params[:user])
-      #  respond_with @user
-        head :forbidden
+        @user = User.new(params[:user])
+        @user.uuid = SecureRandom.uuid
+        if @user.save
+          respond_with @user, status: :created, location: @user
+        else
+          render json: @user.errors, status: :unprocessable_entity
+        end
       end
       
       # PUT /users/1.json
