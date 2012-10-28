@@ -58,6 +58,9 @@ HbbnextIdm::Application.routes.draw do
     get 'active'
   end
 
+  get 'wiki', to: 'wiki#index',    as: 'wiki'
+  get "wiki/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

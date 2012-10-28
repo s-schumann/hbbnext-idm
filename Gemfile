@@ -44,3 +44,5 @@ gem 'formtastic-bootstrap'
 gem 'rabl'
 
 gem 'newrelic_rpm'
+
+gem 'redcarpet'
