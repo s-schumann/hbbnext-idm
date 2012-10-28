@@ -9,7 +9,7 @@ child(@context => :links) {
 	end
 	node :devices do
 		@context.udrs.select('distinct device_id').map { |context| {
-			:id => context.device_id, :href => "http://#{$currentDomain}/api/#{$currentVersion}/devices/#{context.device_id}"
+			:id => context.device_id, :href => "http://#{$currentDomain}/api/v1/devices/#{context.device_id}"
 			}}
 	end
 }

@@ -1,5 +1,5 @@
 {
-  "apiVersion": "1.0",
+  "apiVersion": "2.0",
   "swaggerVersion": "1.1",
   "basePath": "http://<%= $currentDomain %>/api/<%= $currentVersion %>",
   "resourcePath": "/users",
@@ -32,6 +32,39 @@
                         {
                             "name": "userId",
                             "description": "ID of user that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "user not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/users/{userId}",
+            "description": "Operations about users",
+            "operations": [
+                {
+                    "httpMethod": "DELETE",
+                    "summary": "Delete user by ID",
+                    "notes": "Deletes a user based on ID",
+                    "responseClass": "User",
+                    "nickname": "deleteUserById",
+                    "parameters": [
+                        {
+                            "name": "userId",
+                            "description": "ID of user that shall be deleted",
                             "paramType": "path",
                             "required": true,
                             "allowMultiple": false,

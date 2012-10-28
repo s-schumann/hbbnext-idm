@@ -1,5 +1,5 @@
 {
-  "apiVersion": "1.0",
+  "apiVersion": "2.0",
   "swaggerVersion": "1.1",
   "basePath": "http://<%= $currentDomain %>/api/<%= $currentVersion %>",
   "resourcePath": "/devices",
@@ -27,11 +27,44 @@
                     "summary": "Find device by ID",
                     "notes": "Returns a device based on ID",
                     "responseClass": "Device",
-                    "nickname": "getDeviceById",
+                    "nickname": "deleteDeviceById",
                     "parameters": [
                         {
                             "name": "deviceId",
                             "description": "ID of device that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Device not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/devices/{deviceId}",
+            "description": "Operations about devices",
+            "operations": [
+                {
+                    "httpMethod": "DELETE",
+                    "summary": "Delete device by ID",
+                    "notes": "Deletes a device based on ID",
+                    "responseClass": "Device",
+                    "nickname": "getDeviceById",
+                    "parameters": [
+                        {
+                            "name": "deviceId",
+                            "description": "ID of device that shall be deleted",
                             "paramType": "path",
                             "required": true,
                             "allowMultiple": false,

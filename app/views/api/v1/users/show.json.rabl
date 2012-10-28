@@ -25,7 +25,7 @@ child(@user => :links) {
 	end
 	node :devices do
 		@user.devices.map { |d| {	
-			:id => d.id, :display_name => d.display_name, :href => "http://#{$currentDomain}/api/#{$currentVersion}/devices/#{d.id}"
+			:id => d.id, :display_name => d.display_name, :href => "http://#{$currentDomain}/api/v1/devices/#{d.id}"
 		}}
 	end
 }
