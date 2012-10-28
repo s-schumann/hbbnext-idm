@@ -1,6 +1,16 @@
 <h2>Active UDRs</h2>
 
-<em>TODO</em>
+<%= semantic_form_for @context, :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.semantic_fields_for :crs do |cr| %>
+      <%= cr.inputs do %>
+        <%= cr.input :name, :label => "Context" %>
+      	<%= cr.input :active %>
+      <% end %>
+    <% end %>
+	<%= f.actions do %>
+      <%= f.action :submit, :as => :button %>
+    <% end %>
+<% end %>
 
 <div class="form-actions">
 	<%= link_to 'Back', contexts_path, :class => 'btn' %>

@@ -3,6 +3,7 @@ module Active
     
     # GET /contexts/1/active/devices
     def index
+      @context = Context.find(params[:context_id])
     end
     
     # GET /contexts/1/active/devices/2

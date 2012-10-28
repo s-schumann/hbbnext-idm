@@ -1,6 +1,6 @@
 <h2>Active Devices</h2>
 
-<em>TODO</em>
+<%= render :partial => '/contexts/activedevices', :locals => { :context => @context } %>
 
 <div class="form-actions">
 	<%= link_to 'Back', contexts_path, :class => 'btn' %>
