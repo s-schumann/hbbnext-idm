@@ -1,3 +1,2 @@
-node(:error) {
-	attribute :description => "Method not specified"
-}
+object @context
+attributes :id, :alias, :display_name, :uuid

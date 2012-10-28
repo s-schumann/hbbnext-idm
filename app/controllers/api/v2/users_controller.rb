@@ -37,9 +37,8 @@ module Api
       
       # PUT /users/1.json
       def update
-      #  @user = User.update(params[:id], params[:users])
-      #  respond_with @user
-        head :forbidden
+        @user = User.update(params[:id], params[:user])
+        respond_with @user
       end
       
       # DELETE /users/1.json

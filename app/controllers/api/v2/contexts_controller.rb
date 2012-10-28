@@ -29,9 +29,8 @@ module Api
       
       # PUT /contexts/1.json
       def update
-      #  @context = Context.update(params[:id], params[:contexts])
-      #  respond_with @context
-        head :forbidden
+        @context = Context.update(params[:id], params[:context])
+        respond_with @context
       end
       
       # DELETE /contexts/1.json

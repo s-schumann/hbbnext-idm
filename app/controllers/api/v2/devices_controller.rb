@@ -37,9 +37,8 @@ module Api
       
       # PUT /devices/1.json
       def update
-      #  @device = Device.update(params[:id], params[:devices])
-      #  respond_with @device
-        head :forbidden
+        @device = Device.update(params[:id], params[:device])
+        respond_with @device
       end
       
       # DELETE /devices/1.json
