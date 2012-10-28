@@ -40,9 +40,8 @@ module Api
       
       # DELETE /devices/1.json
       def destroy
-      #  @device = Device.destroy(params[:id])
-      #  respond_with @device
-        head :forbidden
+        @device = Device.destroy(params[:id])
+        respond_with @device
       end
       
       private

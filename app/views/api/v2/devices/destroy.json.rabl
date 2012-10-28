@@ -1,3 +1,5 @@
-node(:error) {
-	attribute :description => "Method not specified"
+object @device
+attributes :id
+node(:meta) {
+	attribute :description => "Device deleted.", :success => true
 }

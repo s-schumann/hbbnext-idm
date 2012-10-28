@@ -40,9 +40,8 @@ module Api
       
       # DELETE /users/1.json
       def destroy
-      #  @user = User.destroy(params[:id])
-      #  respond_with @user
-        head :forbidden
+        @user = User.destroy(params[:id])
+        respond_with @user
       end
       
       private

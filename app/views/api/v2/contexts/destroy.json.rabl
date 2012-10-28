@@ -1,3 +1,5 @@
-node(:error) {
-	attribute :description => "Method not specified"
+object @context
+attributes :id
+node(:meta) {
+	attribute :description => "Context deleted.", :success => true
 }

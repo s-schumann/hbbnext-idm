@@ -32,9 +32,8 @@ module Api
       
       # DELETE /contexts/1.json
       def destroy
-      #  @context = Context.destroy(params[:id])
-      #  respond_with @context
-        head :forbidden
+        @context = Context.destroy(params[:id])
+        respond_with @context
       end
 
       private
