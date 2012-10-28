@@ -7,6 +7,7 @@
     <th>Display-Name</th>
     <th>Users</th>
     <th>Devices</th>
+    <th>Active</th>
     <th>Actions</th>
   </tr>
 
@@ -20,6 +21,11 @@
     </td>
     <td>
       <%= render :partial => "contextdevices", :locals => { :context => context } %>
+    </td>
+    <td>
+      <%= link_to 'U', contexts_path, :class => 'btn btn-mini' %>
+      <%= link_to 'D', contexts_path, :class => 'btn btn-mini' %>
+      <%= link_to 'UDR', contexts_path, :class => 'btn btn-mini' %>
     </td>
     <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/contexts/<%= context.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
       <%= link_to 'Edit', edit_context_path(context), :class => 'btn btn-mini' %>

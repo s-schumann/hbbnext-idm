@@ -23,13 +23,28 @@
 </p>
   
 <p>
-  <b>Users*:</b>
+  <b>Users:</b>
   <%= render :partial => "contextusers", :locals => { :context => @context } %>
 </p>
 
 <p>
-  <b>Devices*:</b>
+  <b>Devices:</b>
   <%= render :partial => "contextdevices", :locals => { :context => @context } %>
+</p>
+
+<p>
+  <b>Active Users*:</b>
+  <%= render 'activeusers' %>
+</p>
+
+<p>
+  <b>Active Devices*:</b>
+  <%= render 'activedevices' %>
+</p>
+
+<p>
+  <b>Active UDRs*:</b>
+  <%= render 'activeudrs' %>
 </p>
 
 <div class="form-actions">
