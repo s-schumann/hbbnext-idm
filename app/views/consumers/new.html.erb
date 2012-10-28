@@ -1,9 +1,9 @@
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
 
-<%= form_for @consumer do |f| %>
+<%= form_for @consumer, :html => { :class => "form-horizontal" } do |f| %>
   <% if @consumer.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
+      <h3>Form is invalid</h3>
       <ul>
         <% @consumer.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,17 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="control-group">
+    <%= f.label :email, "E-Mail", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div class="control-group">
+    <%= f.label :password, "Password", :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="control-group">
+    <%= f.label :password_confirmation, "Confirmation", :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
   </div>
-  <div class="actions"><%= f.submit "Sign Up" %></div>
+  <div class="control-group">
+    <%= f.submit "Sign Up", :class => "btn" %>
+  </div>
 <% end %>
