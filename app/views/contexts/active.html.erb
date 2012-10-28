@@ -3,36 +3,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>ID:</b>
-  <%= @context.id %>
-</p>
-
-<p>
-  <b>Alias:</b>
-  <%= @context.alias %>
-</p>
-
-<p>
-  <b>Display-Name:</b>
-  <%= @context.display_name %>
-</p>
-
-<p>
-  <b>UUID:</b>
-  <%= @context.uuid %>
-</p>
-  
-<p>
-  <b>Users:</b>
-  <%= render :partial => "contextusers", :locals => { :context => @context } %>
-</p>
-
-<p>
-  <b>Devices:</b>
-  <%= render :partial => "contextdevices", :locals => { :context => @context } %>
-</p>
-
-<p>
   <b>Active Users*:</b>
   <%= render :partial => 'activeusers', :locals => { :context => @context } %>
 </p>

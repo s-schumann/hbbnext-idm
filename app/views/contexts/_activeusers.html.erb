@@ -1,1 +1,4 @@
-<em>List active users</em>
+<br />
+<% context.crs.each do |relation| %>
+	<%= relation.udr.user.username %> - <%= relation.active %><br />
+<% end %>

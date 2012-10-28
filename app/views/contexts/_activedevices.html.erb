@@ -1,1 +1,4 @@
-<em>List active devices</em>
+<br />
+<% context.crs.each do |relation| %>
+	<%= relation.udr.device.display_name %> - <%= relation.active %><br />
+<% end %>

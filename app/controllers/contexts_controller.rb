@@ -76,6 +76,15 @@ class ContextsController < ApplicationController
     end
   end
 
+  # GET /contexts/1/active
+  def active
+    @context = Context.find(params[:context_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
+
   private
     def set_cr_name
       @context.crs.each do |cr|       
