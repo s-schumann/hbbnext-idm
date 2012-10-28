@@ -6,5 +6,5 @@ node(:web_url) {
 }
 
 node(:href) {
-	|user| api_v1_user_url(user)
+	|user| api_v2_user_url(user)
 }
