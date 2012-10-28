@@ -29,7 +29,7 @@
     </td>
     <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/users/<%= user.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
         <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
-        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %> 
+        <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %> 
     </td>
   </tr>
 <% end %>

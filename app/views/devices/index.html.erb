@@ -26,7 +26,7 @@
     
     <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/devices/<%= device.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
         <%= link_to 'Edit', edit_device_path(device), :class => 'btn btn-mini' %>
-    <%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+    <%= link_to 'Delete', device, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
     </td>
   </tr>
 <% end %>
