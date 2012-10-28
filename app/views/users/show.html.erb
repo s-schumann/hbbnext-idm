@@ -1,3 +1,5 @@
+<h2>Details of User #<%= @user.id %></h2>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -21,7 +23,7 @@
 </p>
 
 <p>
-  <b>Pin:</b>
+  <b>PIN:</b>
   <%= @user.pin %>
 </p>
 
@@ -41,12 +43,12 @@
 </p>
 
 <p>
-  <b>Face avg:</b>
+  <b>MMI Face:</b>
   <%= @user.mmi_face %>
 </p>
 
 <p>
-  <b>Voice avg:</b>
+  <b>MMI Voice:</b>
   <%= @user.mmi_voice %>
 </p>
 
@@ -55,6 +57,12 @@
   <%= render :partial => "userdevices", :locals => { :user => @user } %>
 </p>
 
+<p>
+  <b>Contexts:</b>
+  <%= render :partial => "usercontexts", :locals => { :user => @user } %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="form-actions">
+  <%= link_to 'Edit', edit_user_path(@user), :class => 'btn'  %>
+  <%= link_to 'Back', users_path, :class => 'btn'  %>
+</div>

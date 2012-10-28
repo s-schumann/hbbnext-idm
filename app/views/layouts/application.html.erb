@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Idm - HBB-Next</title>
+  <title>HBB-Next Identity Management</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -17,24 +17,30 @@
 	<%= render "layouts/navigation" %>
 
 	<div class="container">
+		<div class="row">
+			<div class="span7">
+				<h1>HBB-Next Identity Management</h1>
+			</div>
+			<div class="span5">
+				<% if current_consumer %>
+					<p class="alert alert-success">
+						Logged in as <%= current_consumer.email %><br />
+						Access token: <%= current_consumer.access_token %><br />
+						<%= link_to "Log Out", logout_path %>
+					</p>
+				<% else %>
+					<p class="alert alert-info">
+						<%= link_to "Log In", login_path %>
+					</p>
+				<% end %>
+			</div>
+		</div>
 	
-	<%= image_tag("hbbnext.png", :alt => "HBB-Next logo") %>
-	<h1>HBB-Next Identity Management</h1>
-	<p>
-	    <% if current_consumer %>
-	      Logged in as <%= current_consumer.email %>.
-	      <%= link_to "Log Out", logout_path %><br />
-	      Access token: <%= current_consumer.access_token %>
-	    <% else %>
-	      <%= link_to "Log In", login_path %>
-	    <% end %>
-	</p>
-
-	<%= yield %>
-	
-	<%= render "layouts/footer" %>
+		<%= yield %>
+		
+		<%= render "layouts/footer" %>
 	
 	</div>
 	
-	</body>
+</body>
 </html>

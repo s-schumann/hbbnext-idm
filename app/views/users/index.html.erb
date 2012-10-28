@@ -1,36 +1,23 @@
-<h1>Listing users</h1>
+<h2>Users</h2>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>ID</th>
     <th>Alias</th>
     <th>Username</th>
-    <th>UUID</th>
-    <th>Password</th>
-    <th>Pin</th>
-    <th>Birthday</th>
-    <th>Gender</th>
     <th>E-Mail</th>
-    <th>Face avg</th>
-    <th>Voice avg</th>
+    <th>MMI Face</th>
+    <th>MMI Voice</th>
     <th>Devices</th>
     <th>Contexts</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.id %></td>
+    <td><%= link_to user.id, user %></td>
     <td><%= user.alias %></td>
     <td><%= user.username %></td>
-    <td><%= user.uuid %></td>
-    <td><%= user.password %></td>
-    <td><%= user.pin %></td>
-    <td><%= user.birthday %></td>
-    <td><%= user.gender %></td>
     <td><%= user.email %></td>
     <td><%= user.mmi_face %></td>
     <td><%= user.mmi_voice %></td>
@@ -40,14 +27,14 @@
     <td>
         <%= render :partial => "usercontexts", :locals => { :user => user } %>
     </td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/users/<%= user.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>">API</a></td>
+    <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/users/<%= user.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
+        <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %> 
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, :class => 'btn btn-primary' %>

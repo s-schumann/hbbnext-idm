@@ -39,7 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'debugger'
 
-gem 'formtastic'
+gem 'formtastic-bootstrap'
 
 gem 'rabl'
 

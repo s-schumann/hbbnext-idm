@@ -1,15 +1,15 @@
-<%= semantic_form_for @user do |f| %>
+<%= semantic_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.inputs do %>
-    <%= f.input :alias %>
-    <%= f.input :username %>
-    <%= f.input :password %>
-    <%= f.input :pin %>
-    <%= f.input :birthday %>
-    <%= f.input :gender %>
-    <%= f.input :email %>
-    <%= f.input :mmi_face %>
-    <%= f.input :mmi_voice %>
-    <%= f.input :devices %>
+    <%= f.input :alias, :label => "Alias" %>
+    <%= f.input :username, :label => "Username" %>
+    <%= f.input :password, :label => "Password" %>
+    <%= f.input :pin, :label => "PIN" %>
+    <%= f.input :birthday, :label => "Birthday", :start_year => 1900 %>
+    <%= f.input :gender, :label => "Gender", :as => :radio, :collection => [["m", false], ["f", false]] %>
+    <%= f.input :email, :label => "E-Mail" %>
+    <%= f.input :mmi_face, :label => "MMI Face" %>
+    <%= f.input :mmi_voice, :label => "MMI Voice" %>
+    <%= f.input :devices, :label => "Devices" %>
   <% end %>
 
   <%= f.actions do %>
