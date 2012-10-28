@@ -25,7 +25,7 @@
     <td>
       <%= link_to 'U', context_active_users_path(context), :class => 'btn btn-mini' %>
       <%= link_to 'D', context_active_devices_path(context), :class => 'btn btn-mini' %>
-      <%= link_to 'UDR', context_active_udrs_path(context), :class => 'btn btn-mini' %>
+      <%= link_to 'UDR', context_active_udrs_path(context), :class => 'btn btn-mini btn-primary' %>
     </td>
     <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/contexts/<%= context.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
       <%= link_to 'Edit', edit_context_path(context), :class => 'btn btn-mini' %>

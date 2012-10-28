@@ -7,11 +7,8 @@
       	<%= cr.input :active %>
       <% end %>
     <% end %>
-	<%= f.actions do %>
-      <%= f.action :submit, :as => :button %>
+	<%= f.actions :class => 'form-actions' do %>
+      <%= f.action :submit, :as => :button, :button_html => { :class => 'btn btn-primary' } %>
+      <%= link_to 'Back', contexts_path, :class => 'btn' %>
     <% end %>
 <% end %>
-
-<div class="form-actions">
-	<%= link_to 'Back', contexts_path, :class => 'btn' %>
-</div>

@@ -12,7 +12,8 @@
     <%= f.input :devices, :label => "Devices" %>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
+  <%= f.actions :class => 'form-actions' do %>
+    <%= f.action :submit, :as => :input, :button_html => { :class => 'btn btn-primary' } %>
+    <%= link_to 'Back', users_path, :class => 'btn' %>
   <% end %>
 <% end %>

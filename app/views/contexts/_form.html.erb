@@ -5,7 +5,8 @@
     <%= f.input :udrs, :label => "UDRs" %>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
+  <%= f.actions :class => 'form-actions' do %>
+    <%= f.action :submit, :as => :input, :button_html => { :class => 'btn btn-primary' } %>
+    <%= link_to 'Back', contexts_path, :class => 'btn' %>
   <% end %>
 <% end %>
