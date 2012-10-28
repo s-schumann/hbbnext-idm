@@ -1,39 +1,34 @@
 <h2>Contexts</h2>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>ID</th>
     <th>Alias</th>
-    <th>Display name</th>
-    <th>UUID</th>
+    <th>Display-Name</th>
     <th>Users</th>
     <th>Devices</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @contexts.each do |context| %>
   <tr>
-    <td><%= context.id %></td>
+    <td><%= link_to context.id, context %></td>
     <td><%= context.alias %></td>
     <td><%= context.display_name %></td>
-    <td><%= context.uuid %></td>
     <td>
       <%= render :partial => "contextusers", :locals => { :context => context } %>
     </td>
     <td>
       <%= render :partial => "contextdevices", :locals => { :context => context } %>
     </td>
-    <td><%= link_to 'Show', context %></td>
-    <td><%= link_to 'Edit', edit_context_path(context) %></td>
-    <td><%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/contexts/<%= context.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>">API</a></td>
+    <td><a href="http://<%= $currentDomain %>/api/<%= $currentVersion %>/contexts/<%= context.id %>?access_token=<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>" class="btn btn-mini">API</a>
+      <%= link_to 'Edit', edit_context_path(context), :class => 'btn btn-mini' %>
+      <%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Context', new_context_path %>
+<%= link_to 'New Context', new_context_path, :class => 'btn btn-primary' %>

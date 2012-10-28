@@ -1,3 +1,5 @@
+<h2>Details of Context #<%= @context.id %></h2>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,7 +13,7 @@
 </p>
 
 <p>
-  <b>Display name:</b>
+  <b>Display-Name:</b>
   <%= @context.display_name %>
 </p>
 
@@ -20,11 +22,6 @@
   <%= @context.uuid %>
 </p>
   
-<p style="font-style:italic">
-  <b>UDR ID:</b>
-  <%= @context.udr_ids %>
-</p>
-
 <p>
   <b>Users*:</b>
   <%= render :partial => "contextusers", :locals => { :context => @context } %>
@@ -35,6 +32,7 @@
   <%= render :partial => "contextdevices", :locals => { :context => @context } %>
 </p>
 
-
-<%= link_to 'Edit', edit_context_path(@context) %> |
-<%= link_to 'Back', contexts_path %>
+<div class="form-actions">
+<%= link_to 'Edit', edit_context_path(@context), :class => 'btn' %>
+<%= link_to 'Back', contexts_path, :class => 'btn' %>
+</div>

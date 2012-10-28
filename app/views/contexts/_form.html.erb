@@ -1,8 +1,8 @@
-<%= semantic_form_for @context do |f| %>
+<%= semantic_form_for @context, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.inputs do %>
-    <%= f.input :alias %>
-    <%= f.input :display_name %>
-    <%= f.input :udrs %>
+    <%= f.input :alias, :label => "Alias" %>
+    <%= f.input :display_name, :label => "Display-Name" %>
+    <%= f.input :udrs, :label => "UDRs" %>
   <% end %>
 
   <%= f.actions do %>
