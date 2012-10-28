@@ -1,0 +1,77 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.1",
+  "basePath": "http://<%= $currentDomain %>/api/<%= $currentVersion %>",
+  "resourcePath": "/devices",
+
+  "apis": [
+        {
+            "path": "/devices",
+            "description": "Operations about devices",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all devices",
+                    "notes": "Returns all devices",
+                    "responseClass": "Device",
+                    "nickname": "getDevicesById"
+                }
+            ]
+        },
+        {
+            "path": "/devices/{deviceId}",
+            "description": "Operations about devices",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Find device by ID",
+                    "notes": "Returns a device based on ID",
+                    "responseClass": "Device",
+                    "nickname": "getDeviceById",
+                    "parameters": [
+                        {
+                            "name": "deviceId",
+                            "description": "ID of device that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Device not found"
+                        }
+                    ]
+                }
+            ]
+        }
+ 	],
+ 	"models": {
+        "Device": {
+            "id": "Device",
+            "properties": {
+                "id": {
+                    "type": "long"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "display_name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

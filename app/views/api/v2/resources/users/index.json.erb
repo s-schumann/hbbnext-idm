@@ -1,0 +1,98 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.1",
+  "basePath": "http://<%= $currentDomain %>/api/<%= $currentVersion %>",
+  "resourcePath": "/users",
+
+  "apis": [
+        {
+            "path": "/users",
+            "description": "Operations about users",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all users",
+                    "notes": "Returns all users",
+                    "responseClass": "User",
+                    "nickname": "getUsersById"
+                }
+            ]
+        },
+        {
+            "path": "/users/{userId}",
+            "description": "Operations about users",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Find user by ID",
+                    "notes": "Returns a user based on ID",
+                    "responseClass": "User",
+                    "nickname": "getUserById",
+                    "parameters": [
+                        {
+                            "name": "userId",
+                            "description": "ID of user that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "user not found"
+                        }
+                    ]
+                }
+            ]
+        }
+ 	],
+ 	"models": {
+        "User": {
+            "id": "User",
+            "properties": {
+                "id": {
+                    "type": "long"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "pin": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "voice": {
+                    "type": "string"
+                },
+                "face": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
