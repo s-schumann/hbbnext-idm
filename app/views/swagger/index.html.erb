@@ -39,7 +39,7 @@
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://<%= $currentDomain %>/api/<%= $currentVersion %>/resources",
+                discoveryUrl:"<%= api_v2_resources_url %>",
                 apiKey:"<%= current_consumer.access_token %>",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
