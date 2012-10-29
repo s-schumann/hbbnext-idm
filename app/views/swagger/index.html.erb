@@ -40,7 +40,7 @@
         $(function () {
             window.swaggerUi = new SwaggerUi({
                 discoveryUrl:"<%= api_v2_resources_url %>",
-                apiKey:"<%= current_consumer.access_token %>",
+                apiKey:"<%= if defined?(current_consumer.access_token) then current_consumer.access_token end %>",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete']
