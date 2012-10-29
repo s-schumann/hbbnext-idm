@@ -29,3 +29,7 @@ child(@user => :links) {
 		}}
 	end
 }
+
+node(:meta) {
+	attribute :description => "n/a", :success => true, :created_by => "n/a", :created_at => @user.created_at, :updated_at => @user.updated_at
+}

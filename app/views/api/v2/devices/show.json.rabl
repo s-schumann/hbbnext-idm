@@ -13,3 +13,7 @@ child(@device => :links) {
 		}}
 	end
 }
+
+node(:meta) {
+	attribute :description => "n/a", :success => true, :created_by => "n/a", :created_at => @device.created_at, :updated_at => @device.updated_at
+}

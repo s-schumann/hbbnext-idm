@@ -13,3 +13,7 @@ child(@context => :links) {
 			}}
 	end
 }
+
+node(:meta) {
+	attribute :description => "n/a", :success => true, :created_by => "n/a", :created_at => @context.created_at, :updated_at => @context.updated_at
+}
