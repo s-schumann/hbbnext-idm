@@ -9,7 +9,7 @@ child(@device => :links) {
 	end
 	node :users do	
 		@device.users.map { |u| {	
-			:id => u.id, :username => u.username, :href => "http://#{$currentDomain}/api/#{$currentVersion}/users/#{u.id}"
+			:id => u.id, :username => u.username, :href => api_v2_user_url(User.find(u.id))
 		}}
 	end
 }
