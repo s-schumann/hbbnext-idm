@@ -21,16 +21,28 @@ The interaction with this module happens either through HTML or the API.
 
 The API supports the following data representation formats:
 - JSON
-- XML
+- *XML (not just yet)*
 
 In the following, only the JSON format is used to describe the API further.
 
 API description
 ---------------
 
-_TODO_
+- API with **C**reate **R**ead **U**pdate **D**elete support.
+	- Create: HTTP POST
+	- Read: HTTP GET
+	- Update: HTTP PUT
+	- Delete: HTTP DELETE
+
+- API is versioned. Once a version has been made available, it is kept, and all future changes are made on an increased version number.
+
+- For now, fields are submitted as key-value pairs x-www-form-urlencoded.
+	- Key-value pairs separated by '=' and from each other by '&'
+	- For now, each key is supplied including the model name (e.g. user[alias]=temp)
+
+- The API required an API token for *all operations*. Each signed up user has a token.
 
 Author
 ------
 Sebastian Schumann (seb.schumann@gmail.com)
-2012
+Slovak Telekom, 2012
