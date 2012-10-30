@@ -26,11 +26,11 @@
 					<p class="alert alert-success">
 						Logged in as <%= current_consumer.email %><br />
 						Access token: <%= current_consumer.access_token %><br />
-						<%= link_to "Log Out", logout_path %>
+						<%= link_to "Log out", logout_path %>
 					</p>
 				<% else %>
 					<p class="alert alert-info">
-						<%= link_to "Sign up", signup_path %>  and <%= link_to "log In", login_path %> to edit and delete resources and use the API.
+						<%= link_to "Sign up", signup_path %>  and <%= link_to "log in", login_path %> to edit and delete resources and use the API.
 					</p>
 				<% end %>
 			</div>
