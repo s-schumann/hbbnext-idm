@@ -3,9 +3,9 @@
 # Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
 # For more information, visit www.newrelic.com.
 #
-# Generated October 31, 2012
+# Generated October 26, 2012
 #
-# This configuration file is custom generated for schunet
+# This configuration file is custom generated for Slovak Telekom, a.s.
 
 # Here are the settings that are common to all environments:
 common: &default_settings
@@ -14,7 +14,7 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
-  license_key: '2d69a98356f59e9548654dfbb1ed8cff65517def'
+  license_key: '9f483a1fa03156feeabd3d6a863d278326a7ba59'
   
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -23,7 +23,7 @@ common: &default_settings
   # it from running with Rake or the console.  Set to false to
   # completely turn the agent off regardless of the other settings.
   # Valid values are true, false and auto.
-  agent_enabled: auto
+  # agent_enabled: auto
   
   # Application Name
   # Set this to be the name of your application as you'd like it show
