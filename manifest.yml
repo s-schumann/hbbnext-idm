@@ -1,7 +1,7 @@
 ---
 applications:
   .:
-    name: hbbnext-idm
+    name: hbbnext-idm-dev
     framework:
       name: rails3
       info:
@@ -12,5 +12,5 @@ applications:
     mem: 256M
     instances: 1
     services:
-      mysql-hbbnext-idm:
+      mysql-hbbnext-idm-dev:
         type: mysql
