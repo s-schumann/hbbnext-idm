@@ -13,11 +13,13 @@ module Active
     
     # POST /contexts/1/active/udrs
     def create
+      set_last_login
       head :forbidden
     end
     
     # PUT /contexts/1/active/udrs/2
     def update
+      set_last_login
       head :forbidden
     end
     
@@ -25,5 +27,20 @@ module Active
     def destroy
       head :forbidden
     end
+  end
+
+  private
+    def set_last_login
+    @context.crs.each do |cr|       
+      @context.attributes = {
+        :crs_attributes => [
+          { :id => cr.id, :name => "#{@context.display_name}:#{@context.udrs.find(cr.udr_id).name}" }
+        ]
+      }
+      if cr.active
+        cr.last_login = Time.now
+      end
+    end
+    @context.update_attributes(params[:context])
   end 
 end
