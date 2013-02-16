@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   $currentTime = Time.now
   $currentVersion = "v2"
-  $currentRelease = "1.2.2" # X.Y.Z  X-LAST milestone (min. 1), Y-release, Z-increment. Tag starts at 1.0.0, afterwards increase with release.
+  $currentRelease = "1.3.0" # X.Y.Z  X-LAST milestone (min. 1), Y-release, Z-increment. Tag starts at 1.0.0, afterwards increase with release.
 
   private
 	def current_consumer

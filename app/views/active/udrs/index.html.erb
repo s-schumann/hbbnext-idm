@@ -5,6 +5,7 @@
       <%= cr.inputs do %>
         <%= cr.input :name, :label => "Context" %>
       	<%= cr.input :active %>
+        <%= cr.input :last_login, :as => :string, :input_html => { :readonly => true } %>
       <% end %>
     <% end %>
 	<%= f.actions :class => 'form-actions' do %>
