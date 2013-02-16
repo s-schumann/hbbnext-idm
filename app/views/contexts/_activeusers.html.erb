@@ -1,4 +1,4 @@
 <br />
 <% context.crs.each do |relation| %>
-	<%= relation.udr.user.username %> - <%= relation.active %><br />
+	<%= relation.udr.user.username %> - <%= relation.active %> (last login: <%= relation.last_login %>)<br />
 <% end %>

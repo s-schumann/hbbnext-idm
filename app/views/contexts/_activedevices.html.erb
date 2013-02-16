@@ -1,4 +1,4 @@
 <br />
 <% context.crs.each do |relation| %>
-	<%= relation.udr.device.display_name %> - <%= relation.active %><br />
+	<%= relation.udr.device.display_name %> - <%= relation.active %> (last login: <%= relation.last_login %>)<br />
 <% end %>
