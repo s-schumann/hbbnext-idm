@@ -47,4 +47,4 @@ Author
 
 Sebastian Schumann (seb.schumann@gmail.com)
 
-Slovak Telekom, 2012
+Slovak Telekom, 2012-2013
