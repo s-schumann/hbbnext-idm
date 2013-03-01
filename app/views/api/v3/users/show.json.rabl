@@ -14,7 +14,7 @@ child(@user => :contact) {
 }
 
 node(:mmi) {
-	attributes :voice =>  Random.rand().round(2), :face => Random.rand().round(2)
+	attributes :voice =>  @user.mmi_voice, :face => @user.mmi_face
 }
 
 child(@user => :links) {
