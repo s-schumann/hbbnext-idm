@@ -1,0 +1,107 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.1",
+  "basePath": "<%= root_url %>api/<%= $currentVersion %>",
+  "resourcePath": "/contexts",
+
+  "apis": [
+        {
+            "path": "/contexts",
+            "description": "Operations about contexts",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve all contexts",
+                    "notes": "Returns all contexts",
+                    "responseClass": "Context",
+                    "nickname": "getContextsById"
+                }
+            ]
+        },
+        {
+            "path": "/contexts/{contextId}",
+            "description": "Operations about contexts",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Find context by ID",
+                    "notes": "Returns a context based on ID",
+                    "responseClass": "Context",
+                    "nickname": "getContextById",
+                    "parameters": [
+                        {
+                            "name": "contextId",
+                            "description": "ID of context that needs to be fetched",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Context not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/contexts/{contextId}",
+            "description": "Operations about contexts",
+            "operations": [
+                {
+                    "httpMethod": "DELETE",
+                    "summary": "Delete context by ID",
+                    "notes": "Deletes a context based on ID",
+                    "responseClass": "Context",
+                    "nickname": "deleteContextById",
+                    "parameters": [
+                        {
+                            "name": "contextId",
+                            "description": "ID of context that shall be deleted",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Context not found"
+                        }
+                    ]
+                }
+            ]
+        }
+ 	],
+ 	"models": {
+        "Context": {
+            "id": "Context",
+            "properties": {
+                "id": {
+                    "type": "long"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "display_name": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -41,6 +41,24 @@ HbbnextIdm::Application.routes.draw do
         get 'active'
       end
     end
+    namespace :v3 do
+      resources :users
+      resources :devices
+      resources :contexts
+      get 'resources/resources', to: 'resources#index', as: 'resources'
+      get 'resources', to: 'resources#index', as: 'resources'
+      get 'resources/users', to: 'resources/users#index', as: 'resources/users'
+      get 'resources/devices', to: 'resources/devices#index', as: 'resources/devices'
+      get 'resources/contexts', to: 'resources/contexts#index', as: 'resources/contexts'
+      resources :contexts do
+        namespace :active do
+          resources :users, only: [:index, :create, :show, :update, :destroy]
+          resources :devices, only: [:index, :create, :show, :update, :destroy]
+          resources :udrs, only: [:index, :create, :show, :update, :destroy]
+        end
+        get 'active'
+      end
+    end
   end
 
   resources :users
