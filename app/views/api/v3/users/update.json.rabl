@@ -14,5 +14,5 @@ child(@user => :contact) {
 }
 
 node(:meta) {
-	attribute :description => "User updated.", :success => true, :created_by => "n/a", :created_at => @user.created_at, :updated_at => @user.updated_at, :version => "v2"
+	attribute :description => "User updated.", :success => true, :created_by => "n/a", :created_at => @user.created_at, :updated_at => @user.updated_at, :version => "v3"
 }

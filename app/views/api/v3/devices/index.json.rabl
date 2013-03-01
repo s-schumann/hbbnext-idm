@@ -6,5 +6,5 @@ node(:web_url) {
 }
 
 node(:href) {
-	|device| api_v2_device_url(device)
+	|device| api_v3_device_url(device)
 }

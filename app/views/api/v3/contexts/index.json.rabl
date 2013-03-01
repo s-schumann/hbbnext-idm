@@ -6,5 +6,5 @@ node(:web_url) {
 }
 
 node(:href) {
-	|context| api_v2_context_url(context)
+	|context| api_v3_context_url(context)
 }

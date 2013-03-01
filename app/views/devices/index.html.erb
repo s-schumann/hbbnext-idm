@@ -24,7 +24,7 @@
         <%= render :partial => "devicecontexts", :locals => { :device => device } %>
     </td>
     
-    <td><%= link_to "API", api_v2_device_path(device, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
+    <td><%= link_to "API", api_v3_device_path(device, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
         <%= link_to 'Edit', edit_device_path(device), :class => 'btn btn-mini' %>
     <%= link_to 'Delete', device, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
     </td>

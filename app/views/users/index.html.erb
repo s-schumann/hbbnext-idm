@@ -27,7 +27,7 @@
     <td>
         <%= render :partial => "usercontexts", :locals => { :user => user } %>
     </td>
-    <td><%= link_to "API", api_v2_user_path(user, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
+    <td><%= link_to "API", api_v3_user_path(user, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
         <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
         <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %> 
     </td>

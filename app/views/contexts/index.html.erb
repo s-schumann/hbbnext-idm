@@ -27,7 +27,7 @@
       <%= link_to 'D', context_active_devices_path(context), :class => 'btn btn-mini' %>
       <%= link_to 'UDR', context_active_udrs_path(context), :class => 'btn btn-mini btn-primary' %>
     </td>
-    <td><%= link_to "API", api_v2_context_path(context, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
+    <td><%= link_to "API", api_v3_context_path(context, :access_token => if defined?(current_consumer.access_token) then current_consumer.access_token end), :class => 'btn btn-mini' %>
       <%= link_to 'Edit', edit_context_path(context), :class => 'btn btn-mini' %>
       <%= link_to 'Delete', context, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
     </td>
