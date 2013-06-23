@@ -9,19 +9,21 @@ node(:href) {
 	|context| api_v3_context_url(context)
 }
 
-node(:users) {
-	active = Array.new
-	lastlogin = Time.now
-	@context.crs.each do |relation|
-		if relation.active
-			gonext = false
-			active.each do |n|
-	  			gonext = true if relation.udr.user.username == n
+child(@context => :links) do
+	node(:users) {
+		active = Array.new
+		@context.crs.each do |relation|
+			if relation.active
+				gonext = false
+				active.each do |n|
+		  			gonext = true if relation.udr.user.id == n
+				end
+				next if gonext
+				active.push(relation.udr.user.id)
 			end
-			next if gonext
-			active.push(relation.udr.user.username)
 		end
-		lastlogin = relation.last_login
-	end
-	active.each
-}
+		active.each.map { |u| {
+				:id => u, :href => api_v3_user_url(u)
+		}}
+	}
+end
