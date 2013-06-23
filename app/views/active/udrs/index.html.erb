@@ -7,6 +7,7 @@
       	<%= cr.input :active %>
         <%= cr.input :last_login, :as => :string, :input_html => { :readonly => true } %>
       <% end %>
+      <hr />
     <% end %>
 	<%= f.actions :class => 'form-actions' do %>
       <%= f.action :submit, :as => :button, :button_html => { :class => 'btn btn-primary' } %>
