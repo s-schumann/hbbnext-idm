@@ -1,4 +1,18 @@
 <br />
+<% active = Array.new %>
+<% lastlogin = Time.now %>
 <% context.crs.each do |relation| %>
-	<%= relation.udr.device.display_name %> - <%= relation.active %> (last login: <%= relation.last_login %>)<br />
+	<% if relation.active %>
+		<% gonext = false %>
+		<% active.each do |n| %>
+  			<% gonext = true if relation.udr.device.display_name == n %>
+		<% end %>
+		<% next if gonext %>
+		<% active.push(relation.udr.device.display_name) %>
+	<% end %>
+	<% lastlogin = relation.last_login %>
+<% end %>
+
+<% active.each do |n| %>
+  <%= n %><br />
 <% end %>
