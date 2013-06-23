@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216181838) do
+ActiveRecord::Schema.define(:version => 20130623234050) do
 
   create_table "consumers", :force => true do |t|
     t.string   "email"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130216181838) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "uuid"
+    t.string   "created_by"
   end
 
   create_table "crs", :force => true do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130216181838) do
     t.boolean  "active"
     t.string   "uuid"
     t.datetime "last_login"
+    t.string   "created_by"
   end
 
   create_table "devices", :force => true do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130216181838) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "uuid"
+    t.string   "created_by"
   end
 
   create_table "roles", :force => true do |t|
@@ -65,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130216181838) do
     t.string   "uuid"
     t.integer  "role_id"
     t.datetime "last_login"
+    t.string   "created_by"
   end
 
   create_table "users", :force => true do |t|
@@ -80,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20130216181838) do
     t.string   "gender"
     t.date     "birthday"
     t.string   "email"
+    t.string   "created_by"
   end
 
 end
