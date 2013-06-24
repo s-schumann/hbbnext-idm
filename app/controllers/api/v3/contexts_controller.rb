@@ -20,6 +20,8 @@ module Api
       def create
         @context = Context.new(params[:context])
         @context.uuid = SecureRandom.uuid
+        current_consumer ||= Consumer.find_by_access_token(params[:access_token])
+        @context.created_by = current_consumer.email
         if @context.save
           respond_with @context, status: :created, location: @context
         else
@@ -29,6 +31,12 @@ module Api
 
       # PUT /contexts/1.json
       def update
+        @context = context.find(params[:id])
+        if not @context.created_by
+          current_consumer ||= Consumer.find_by_access_token(params[:access_token])
+          @context.created_by = current_consumer.email
+          @context.save
+        end
         @context = Context.update(params[:id], params[:context])
         respond_with @context
       end
