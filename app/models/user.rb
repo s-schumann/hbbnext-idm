@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 	logger.info "xuser ID: #{xuser_id} - MMI value: #{mmi_face}" if debug
 
 	#  db connection to localhost with the default port
-	db = Mongo::Connection.new.db('mmi_values')
+	db = Mongo::Connection.new.db('hbbnext-idm2_development')
 
 	# collections
 	faces = db.collection('face')
@@ -104,7 +104,7 @@ def normalize_voice
 	logger.info "xuser ID: #{xuser_id} - MMI value: #{mmi_voice}" if debug
 
 	#  db connection to localhost with the default port
-	db = Mongo::Connection.new.db('mmi_values')
+	db = Mongo::Connection.new.db('hbbnext-idm2_development')
 
 	# collections
 	voices = db.collection('voice')
