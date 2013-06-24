@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :alias, :password, :pin, :username, :udr_ids, :device_ids, :role_ids, :mmi_face, :mmi_voice, :birthday, :gender, :email
-  attr_protected :uuid
+  attr_protected :uuid, :created_by
 
   has_many :udrs, :dependent => :destroy
   has_many :devices, :through => :udrs
