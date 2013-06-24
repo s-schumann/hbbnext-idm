@@ -48,3 +48,5 @@ gem 'newrelic_rpm'
 gem 'redcarpet'
 
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'mongo'
