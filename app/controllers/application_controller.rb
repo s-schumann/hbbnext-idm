@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   $currentTime = Time.now
   $currentVersion = "v3"
-  $currentRelease = "1.3.1-dev" # X.Y.Z  X-LAST milestone (min. 1), Y-release, Z-increment. Tag starts at 1.0.0, afterwards increase with release. -dev added until new release ready.
+  $currentRelease = "1.3.1" # X.Y.Z  X-LAST milestone (min. 1), Y-release, Z-increment. Tag starts at 1.0.0, afterwards increase with release. -dev added until new release ready.
   $normalizationInterval = 60
 
   private
