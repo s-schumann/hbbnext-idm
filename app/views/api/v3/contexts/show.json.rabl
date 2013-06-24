@@ -15,5 +15,5 @@ child(@context => :links) {
 }
 
 node(:meta) {
-	attribute :description => "n/a", :success => true, :created_by => "n/a", :created_at => @context.created_at, :updated_at => @context.updated_at, :version => "v3"
+	attribute :description => "n/a", :success => true, :created_by => @context.created_by, :created_at => @context.created_at, :updated_at => @context.updated_at, :version => "v3"
 }
