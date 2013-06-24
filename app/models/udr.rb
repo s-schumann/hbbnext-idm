@@ -1,5 +1,5 @@
 class Udr < ActiveRecord::Base
-  attr_accessible :user_id, :device_id, :cr_ids, :context_ids, :name, :uuid, :role_id, :last_login, :created_by
+  attr_accessible :user_id, :device_id, :cr_ids, :context_ids, :name, :uuid, :role_id, :created_by
 
   belongs_to :user
   belongs_to :device

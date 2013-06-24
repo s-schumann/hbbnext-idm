@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623234050) do
+ActiveRecord::Schema.define(:version => 20130624095406) do
 
   create_table "consumers", :force => true do |t|
     t.string   "email"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(:version => 20130623234050) do
     t.string   "name"
     t.boolean  "active"
     t.string   "uuid"
-    t.datetime "last_login"
     t.string   "created_by"
   end
 
@@ -67,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20130623234050) do
     t.string   "name"
     t.string   "uuid"
     t.integer  "role_id"
-    t.datetime "last_login"
     t.string   "created_by"
   end
 
