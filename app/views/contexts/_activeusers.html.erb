@@ -1,6 +1,5 @@
 <br />
 <% active = Array.new %>
-<% lastlogin = Time.now %>
 <% context.crs.each do |relation| %>
 	<% if relation.active %>
 		<% gonext = false %>
@@ -10,7 +9,6 @@
 		<% next if gonext %>
 		<% active.push(relation.udr.user.username) %>
 	<% end %>
-	<% lastlogin = relation.last_login %>
 <% end %>
 
 <% active.each do |n| %>
