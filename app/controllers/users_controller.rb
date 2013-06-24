@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
+    normalize_mmi
 
     respond_to do |format|
       format.html # show.html.erb
@@ -112,9 +113,9 @@ class UsersController < ApplicationController
       debug = true
 
       # test variables
-      xuser_id = @user.id
+      user_id = @user.id
       mmi_face = @user.mmi_face.to_i
-      logger.info "xuser ID: #{xuser_id} - MMI value: #{mmi_face}" if debug
+      logger.info "user ID: #{user_id} - MMI value: #{mmi_face}" if debug
 
       #  db connection to localhost with the default port
       db = Mongo::Connection.new.db('hbbnext-idm2_development')
@@ -123,15 +124,15 @@ class UsersController < ApplicationController
       faces = db.collection('face')
 
       # new item
-      new_face = { :xuser => xuser_id, :probability => mmi_face, :created_at => now }
+      new_face = { :user => user_id, :probability => mmi_face, :created_at => now }
 
       # insert
       face_id = faces.insert(new_face)
 
       # Normalize
-      # Get all xuser values first
+      # Get all user values first
       norm = Array.new
-      all_faces = faces.find(:xuser => xuser_id).each do |slice|
+      all_faces = faces.find(:user => user_id).each do |slice|
          logger.info slice.inspect if debug
          # If created within range add value to normalization var collector
          if(slice["created_at"] >= now - range)
@@ -156,14 +157,14 @@ class UsersController < ApplicationController
       @user.save
 
       # Drop older than required value
-      all_faces = faces.find(:xuser => xuser_id).each do |slice|
+      all_faces = faces.find(:user => user_id).each do |slice|
        if(slice["created_at"] < now - range)
           faces.remove(slice)
          end
       end
 
-      # Create index for xuser and probability
-      faces.create_index("xuser")
+      # Create index for user and probability
+      faces.create_index("user")
       faces.create_index("probability")
     end
 
@@ -176,9 +177,9 @@ class UsersController < ApplicationController
       debug = true
 
       # test variables
-      xuser_id = @user.id
+      user_id = @user.id
       mmi_voice = @user.mmi_voice.to_i
-      logger.info "xuser ID: #{xuser_id} - MMI value: #{mmi_voice}" if debug
+      logger.info "user ID: #{user_id} - MMI value: #{mmi_voice}" if debug
 
       #  db connection to localhost with the default port
       db = Mongo::Connection.new.db('hbbnext-idm2_development')
@@ -187,15 +188,15 @@ class UsersController < ApplicationController
       voices = db.collection('voice')
 
       # new item
-      new_voice = { :xuser => xuser_id, :probability => mmi_voice, :created_at => now }
+      new_voice = { :user => user_id, :probability => mmi_voice, :created_at => now }
 
       # insert
       voice_id = voices.insert(new_voice)
 
       # Normalize
-      # Get all xuser values first
+      # Get all user values first
       norm = Array.new
-      all_voices = voices.find(:xuser => xuser_id).each do |slice|
+      all_voices = voices.find(:user => user_id).each do |slice|
          logger.info slice.inspect if debug
          # If created within range add value to normalization var collector
          if(slice["created_at"] >= now - range)
@@ -220,14 +221,109 @@ class UsersController < ApplicationController
       @user.save
 
       # Drop older than required value
-      all_voices = voices.find(:xuser => xuser_id).each do |slice|
+      all_voices = voices.find(:user => user_id).each do |slice|
        if(slice["created_at"] < now - range)
           voices.remove(slice)
          end
       end
 
-      # Create index for xuser and probability
-      voices.create_index("xuser")
+      # Create index for user and probability
+      voices.create_index("user")
       voices.create_index("probability")
+    end
+    def normalize_mmi
+      logger.info "Normalizing MMI..."
+
+      # config variables
+      range = $normalizationInterval
+      now = Time.now.to_i
+      debug = true
+
+      # test variables
+      user_id = @user.id
+      logger.info "user ID: #{user_id}" if debug
+
+      #  db connection to localhost with the default port
+      db = Mongo::Connection.new.db('hbbnext-idm2_development')
+
+      # collections
+      voices = db.collection('voice')
+      faces = db.collection('face')
+
+      # Normalize voices
+      norm = Array.new
+      all_voices = voices.find(:user => user_id).each do |slice|
+         logger.info slice.inspect if debug
+         # If created within range add value to normalization var collector
+         if(slice["created_at"] >= now - range)
+            norm.push(slice["probability"])
+            logger.info norm if debug
+         end
+      end
+      logger.info "Normalize #{norm.count} voice values" if debug
+      logger.info "Array:" if debug
+      logger.info norm if debug
+
+      # Calculate normalized value
+      logger.info "Norm:" if debug
+      sum = 0
+      norm.each do |n|
+         sum += n
+      end
+
+      # Present normalized value
+      if(norm.count !=0)
+        logger.info sum/norm.count if debug
+        @user.mmi_voice = sum/norm.count
+      else
+        logger.info "0" if debug
+        @user.mmi_voice = 0
+      end
+      @user.save
+
+      # Drop older than required value
+      all_voices = voices.find(:user => user_id).each do |slice|
+       if(slice["created_at"] < now - range)
+          voices.remove(slice)
+         end
+      end
+
+      # Normalize faces
+      norm = Array.new
+      all_faces = faces.find(:user => user_id).each do |slice|
+         logger.info slice.inspect if debug
+         # If created within range add value to normalization var collector
+         if(slice["created_at"] >= now - range)
+            norm.push(slice["probability"])
+            logger.info norm if debug
+         end
+      end
+      logger.info "Normalize #{norm.count} face values" if debug
+      logger.info "Array:" if debug
+      logger.info norm if debug
+
+      # Calculate normalized value
+      logger.info "Norm:" if debug
+      sum = 0
+      norm.each do |n|
+         sum += n
+      end
+
+      # Present normalized value
+      if(norm.count !=0)
+        logger.info sum/norm.count if debug
+        @user.mmi_face = sum/norm.count
+      else
+        logger.info "0" if debug
+        @user.mmi_face = 0
+      end
+      @user.save
+
+      # Drop older than required value
+      all_faces = faces.find(:user => user_id).each do |slice|
+       if(slice["created_at"] < now - range)
+          faces.remove(slice)
+         end
+      end
     end
 end
