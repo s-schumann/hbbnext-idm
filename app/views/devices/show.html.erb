@@ -32,6 +32,11 @@
   <%= render :partial => "devicecontexts", :locals => { :device => @device } %>
 </p>
 
+<p>
+  <b><em>Created by:</em></b>
+  <em><%= @device.created_by %></em>
+</p>
+
 <div class="form-actions">
   <%= link_to 'Edit', edit_device_path(@device), :class => 'btn' %>
   <%= link_to 'Back', devices_path, :class => 'btn' %>

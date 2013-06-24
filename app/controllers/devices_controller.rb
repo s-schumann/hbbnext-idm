@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  
+
   before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /devices
@@ -41,6 +41,8 @@ class DevicesController < ApplicationController
     require 'securerandom'
     @device.uuid = SecureRandom.uuid
 
+    @device.created_by = current_consumer.email
+
     respond_to do |format|
       if @device.save
         set_udr_name
@@ -57,6 +59,9 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.update_attributes(params[:device])
+        if not @device.created_by
+          @device.created_by = current_consumer.email
+        end
         set_udr_name
         format.html { redirect_to @device, notice: 'Device was successfully updated.' }
       else
@@ -77,10 +82,10 @@ class DevicesController < ApplicationController
 
   private
     def set_udr_name
-      @device.udrs.each do |udr|       
+      @device.udrs.each do |udr|
         @device.attributes = {
           :udrs_attributes => [
-            { :id => udr.id, 
+            { :id => udr.id,
               :name => "#{@device.users.find(udr.user_id).username}:#{@device.display_name}",
               :role_id => 4
             }
@@ -88,6 +93,9 @@ class DevicesController < ApplicationController
         }
         if not udr.uuid
           udr.uuid = SecureRandom.uuid
+        end
+        if not udr.created_by
+          udr.created_by = current_consumer.email
         end
       end
       @device.update_attributes(params[:device])

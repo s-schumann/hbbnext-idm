@@ -42,6 +42,8 @@ class ContextsController < ApplicationController
     require 'securerandom'
     @context.uuid = SecureRandom.uuid
 
+    @context.created_by = current_consumer.email
+
     respond_to do |format|
       if @context.save
         set_cr_name
@@ -58,6 +60,9 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.update_attributes(params[:context])
+        if not @context.created_by
+          @context.created_by = current_consumer.email
+        end
         set_cr_name
         format.html { redirect_to @context, notice: 'Context was successfully updated.' }
       else
@@ -87,7 +92,7 @@ class ContextsController < ApplicationController
 
   private
     def set_cr_name
-      @context.crs.each do |cr|       
+      @context.crs.each do |cr|
         @context.attributes = {
           :crs_attributes => [
             { :id => cr.id, :name => "#{@context.display_name}:#{@context.udrs.find(cr.udr_id).name}" }
@@ -98,6 +103,9 @@ class ContextsController < ApplicationController
         end
         if not cr.active
           cr.active = false
+        end
+        if not cr.created_by
+          cr.created_by = current_consumer.email
         end
       end
       @context.update_attributes(params[:context])

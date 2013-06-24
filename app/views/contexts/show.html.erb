@@ -21,7 +21,7 @@
   <b>UUID:</b>
   <%= @context.uuid %>
 </p>
-  
+
 <p>
   <b>Users:</b>
   <%= render :partial => "contextusers", :locals => { :context => @context } %>
@@ -45,6 +45,11 @@
 <p>
   <b>Active UDRs*:</b>
   <%= render :partial => 'activeudrs', :locals => { :context => @context } %>
+</p>
+
+<p>
+  <b><em>Created by:</em></b>
+  <em><%= @context.created_by %></em>
 </p>
 
 <div class="form-actions">

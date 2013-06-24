@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /users
@@ -41,6 +41,8 @@ class UsersController < ApplicationController
     require 'securerandom'
     @user.uuid = SecureRandom.uuid
 
+    @user.created_by = current_consumer.email
+
     respond_to do |format|
       if @user.save
         set_udr_name
@@ -54,9 +56,12 @@ class UsersController < ApplicationController
   # PUT /users/1
   def update
     @user = User.find(params[:id])
-    
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        if not @user.created_by
+          @user.created_by = current_consumer.email
+        end
         set_udr_name
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
@@ -77,10 +82,10 @@ class UsersController < ApplicationController
 
   private
     def set_udr_name
-      @user.udrs.each do |udr|       
+      @user.udrs.each do |udr|
         @user.attributes = {
           :udrs_attributes => [
-            { :id => udr.id, 
+            { :id => udr.id,
               :name => "#{@user.username}:#{@user.devices.find(udr.device_id).display_name}",
               :role_id => 4
             }
@@ -88,6 +93,9 @@ class UsersController < ApplicationController
         }
         if not udr.uuid
           udr.uuid = SecureRandom.uuid
+        end
+        if not udr.created_by
+          udr.created_by = current_consumer.email
         end
       end
       @user.update_attributes(params[:user])
