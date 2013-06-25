@@ -1,5 +1,5 @@
 object @device
-attributes :id, :alias, :display_name, :address, :uuid
+attributes :id, :alias, :display_name, :address, :uuid, :uniqueid
 
 child(@device => :links) {
 	node(:contexts) do

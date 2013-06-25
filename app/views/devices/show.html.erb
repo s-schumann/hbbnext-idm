@@ -37,6 +37,11 @@
   <em><%= @device.created_by %></em>
 </p>
 
+<p>
+  <b>Unique ID:</b>
+  <%= @device.uniqueid %>
+</p>
+
 <div class="form-actions">
   <%= link_to 'Edit', edit_device_path(@device), :class => 'btn' %>
   <%= link_to 'Back', devices_path, :class => 'btn' %>
