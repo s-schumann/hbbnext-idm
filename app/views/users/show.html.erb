@@ -67,6 +67,12 @@
   <em><%= @user.created_by %></em>
 </p>
 
+<p>
+  <b>Avatar URL:</b>
+  <%= @user.avatar %><br />
+  <img src="<%= if @user.avatar != nil then @user.avatar else  "http://www.wpclipart.com/people/faces/anonymous/photo_not_available_large.png" end %>" />
+</p>
+
 <div class="form-actions">
   <%= link_to 'Edit', edit_user_path(@user), :class => 'btn'  %>
   <%= link_to 'Back', users_path, :class => 'btn'  %>
