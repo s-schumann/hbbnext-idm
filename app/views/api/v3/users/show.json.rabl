@@ -6,7 +6,7 @@ child(@user => :credentials) {
 }
 
 child(@user => :info) {
-	attributes :gender, :birthday
+	attributes :gender, :birthday, :avatar
 }
 
 child(@user => :contact) {
