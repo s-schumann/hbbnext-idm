@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   $currentTime = Time.now
   $currentVersion = "v3"
   $currentRelease = "1.4.0-dev" # X.Y.Z  X-LAST milestone (min. 1), Y-release, Z-increment. Tag starts at 1.0.0, afterwards increase with release. -dev added until new release ready.
-  $normalizationInterval = 60
+  $normalizationInterval = 300
 
   private
 	def current_consumer
