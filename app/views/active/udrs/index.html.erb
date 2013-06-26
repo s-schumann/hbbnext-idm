@@ -4,6 +4,7 @@
 	<%= f.semantic_fields_for :crs do |cr| %>
       <%= cr.inputs do %>
         <%= cr.input :name, :label => "Context" %>
+        <%= cr.input :udr_id, :label => "UDR ID", :input_html => { :readonly => true } %>
       	<%= cr.input :active %>
       <% end %>
       <hr />
