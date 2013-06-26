@@ -39,7 +39,7 @@ module Api
 
       # PUT /devices/1.json
       def update
-        @device = device.find(params[:id])
+        @device = Device.find(params[:id])
         if not @device.created_by
           current_consumer ||= Consumer.find_by_access_token(params[:access_token])
           @device.created_by = current_consumer.email

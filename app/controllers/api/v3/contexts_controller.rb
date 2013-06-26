@@ -31,7 +31,7 @@ module Api
 
       # PUT /contexts/1.json
       def update
-        @context = context.find(params[:id])
+        @context = Context.find(params[:id])
         if not @context.created_by
           current_consumer ||= Consumer.find_by_access_token(params[:access_token])
           @context.created_by = current_consumer.email
