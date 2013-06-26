@@ -15,14 +15,21 @@ module Api
 
         # POST /contexts/1/active/udrs
         def create
-          set_last_login
+          #set_last_login
           head :forbidden
         end
 
         # PUT /contexts/1/active/udrs/2
         def update
-          set_last_login
-          head :forbidden
+          #set_last_login
+          #head :forbidden
+          @context = Context.find(params[:context_id])
+          #if not @context.created_by
+          #  current_consumer ||= Consumer.find_by_access_token(params[:access_token])
+          #  @context.created_by = current_consumer.email
+          #  @context.save
+          #end
+          #@context = Context.update(params[:id], params[:context])
         end
 
         # DELETE /contexts/1/active/udrs/2
