@@ -1,6 +1,9 @@
 HbbnextIdm::Application.routes.draw do
-  
+
   get "welcome/index"
+
+  get 'admin', to: 'admin#index',    as: 'admin'
+  get "admin/index"
 
   get 'signup', to: 'consumers#new',    as: 'signup'
   get 'login',  to: 'sessions#new',     as: 'login'

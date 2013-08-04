@@ -13,6 +13,9 @@
           <%= nav_link 'Users', users_path %>
           <%= nav_link 'Devices', devices_path %>
           <%= nav_link 'Contexts', contexts_path %>
+          <% if current_consumer %>
+            <%= nav_link 'Administration', admin_path %>
+          <% end %>
         </ul>
       </div>
       <a class="navbar-search pull-right" href="http://www.telekom.sk"><%= image_tag("st.jpg", :alt => "ST", :size => "84x27") %></a>
