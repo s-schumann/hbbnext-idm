@@ -14,6 +14,7 @@
 
 <h3>Network information</h3>
 
-<p>Client IP: <%= request.remote_ip %></p>
-
-<p>Server IP: <%= request.env["HTTP_X_FORWARDED_FOR"] %></p>
+<p>Your IP address is <%= @client_ip %>  <br/>
+AG IP address is <%= @remote_ip %> <br/>
+My Personal IP address is <%= @my_ip %> <br/>
+IP address is <%= @ip_addr %></p>
