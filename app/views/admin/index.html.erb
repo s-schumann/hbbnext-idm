@@ -9,14 +9,14 @@
 
 <h3>Normalization</h3>
 
-<p>Current normalization interval: <%= $normalizationInterval %>s (<%= $normalizationInterval/60 %> min)</p>
+<p>Current normalization interval: <strong><%= $normalizationInterval %>s (<%= $normalizationInterval/60 %> min)</strong></p>
 
 <p><em>Flush normalization cache</em></p>
 <small>Note: Not implemented.</small>
 
 <h3>Network information</h3>
 
-<p>Client IP: <%= @client_ip %> (your IP from which the request was made)</p>
-<p>Server IPs*: <%= @remote_ip %> (the IP of IdM)</p>
+<p>Client IP: <strong><%= @client_ip %></strong> (your IP from which the request was made)</p>
+<p>Server IPs*: <strong><%= @remote_ip %></strong> (the IP of IdM)</p>
 
 <small>Note: You most likely use the server IP in the same subnet as the client IP. In case a proxy is used, results may be different.</small>
