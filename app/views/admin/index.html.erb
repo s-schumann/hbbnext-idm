@@ -1,3 +1,19 @@
 <h2>Administration</h2>
 
 <p>You can administer basic functions here.</p>
+
+<h3>Database access</h3>
+
+<p>Flush MySQL database</p>
+
+<h3>Normalization</h3>
+
+<p>Current normalization interval: <%= $normalizationInterval %>s (<%= $normalizationInterval/60 %> min)</p>
+
+<p>Flush normalization cache</p>
+
+<h3>Network information</h3>
+
+<p>Client IP: <%= request.remote_ip %></p>
+
+<p>Server IP: <%= request.env["HTTP_X_FORWARDED_FOR"] %></p>
