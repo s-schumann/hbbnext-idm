@@ -4,15 +4,19 @@
 
 <h3>Database access</h3>
 
-<p>Flush MySQL database</p>
+<p><em>Flush MySQL database</em></p>
+<small>Note: Not implemented.</small>
 
 <h3>Normalization</h3>
 
 <p>Current normalization interval: <%= $normalizationInterval %>s (<%= $normalizationInterval/60 %> min)</p>
 
-<p>Flush normalization cache</p>
+<p><em>Flush normalization cache</em></p>
+<small>Note: Not implemented.</small>
 
 <h3>Network information</h3>
 
 <p>Client IP: <%= @client_ip %> (your IP from which the request was made)</p>
-<p>Server IP: <%= @remote_ip %> (the IP of IdM)</p>
+<p>Server IPs*: <%= @remote_ip %> (the IP of IdM)</p>
+
+<small>Note: You most likely use the server IP in the same subnet as the client IP. In case a proxy is used, results may be different.</small>
