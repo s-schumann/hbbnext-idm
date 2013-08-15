@@ -17,6 +17,10 @@ node(:mmi) {
 	attributes :voice =>  @user.mmi_voice, :face => @user.mmi_face
 }
 
+node(:appstore) {
+	attributes :pref_price =>  @user.pref_price, :pref_usability =>  @user.pref_usability, :pref_responsiveness =>  @user.pref_responsiveness
+}
+
 child(@user => :links) {
 	node(:contexts) do
 		@cids.uniq.each.map { |cid| {
