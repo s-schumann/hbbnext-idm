@@ -53,6 +53,21 @@
 </p>
 
 <p>
+  <b>Appstore Price Preference:</b>
+  <%= @user.pref_price %>
+</p>
+
+<p>
+  <b>Appstore Usability Preference:</b>
+  <%= @user.pref_usability %>
+</p>
+
+<p>
+  <b>Appstore Responsiveness Preference:</b>
+  <%= @user.pref_responsiveness %>
+</p>
+
+<p>
   <b>Devices:</b>
   <%= render :partial => "userdevices", :locals => { :user => @user } %>
 </p>
