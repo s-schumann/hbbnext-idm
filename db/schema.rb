@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625115241) do
+ActiveRecord::Schema.define(:version => 20130815122421) do
 
   create_table "consumers", :force => true do |t|
     t.string   "email"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20130625115241) do
     t.string   "username"
     t.string   "password"
     t.string   "pin"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "uuid"
     t.string   "mmi_voice"
     t.string   "mmi_face"
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20130625115241) do
     t.string   "email"
     t.string   "created_by"
     t.string   "avatar"
+    t.string   "pref_price"
+    t.string   "pref_usability"
+    t.string   "pref_responsiveness"
   end
 
 end
