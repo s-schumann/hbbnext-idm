@@ -84,8 +84,8 @@
 
 <p>
   <b>Avatar URL:</b>
-  <%= if @user.avatar != nil then @user.avatar else "http://www.wpclipart.com/people/faces/anonymous/photo_not_available_large.png" end %><br />
-  <img src="<%= if @user.avatar != nil then @user.avatar else  "http://www.wpclipart.com/people/faces/anonymous/photo_not_available_large.png" end %>" />
+  <%= @user.avatar %><br />
+  <img src="<%= @user.avatar %>" />
 </p>
 
 <div class="form-actions">

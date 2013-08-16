@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         set_udr_name
+        fill_empty_or_null
         format.html { redirect_to @user, notice: 'User was successfully created.' }
       else
         format.html { render action: "new" }
@@ -64,6 +65,7 @@ class UsersController < ApplicationController
           @user.created_by = current_consumer.email
         end
         set_udr_name
+        fill_empty_or_null
         normalize_face
         normalize_voice
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -102,6 +104,22 @@ class UsersController < ApplicationController
         end
       end
       @user.update_attributes(params[:user])
+    end
+
+    def fill_empty_or_null
+      if @user.avatar.blank?
+        @user.avatar = "http://www.wpclipart.com/people/faces/anonymous/photo_not_available_large.png"
+      end
+      if @user.pref_price.blank?
+        @user.pref_price = "0.5"
+      end
+      if @user.pref_usability.blank?
+        @user.pref_usability = "0.5"
+      end
+      if @user.pref_responsiveness.blank?
+        @user.pref_responsiveness = "0.5"
+      end
+      @user.save
     end
 
     def normalize_face
