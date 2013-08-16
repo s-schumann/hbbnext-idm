@@ -33,6 +33,7 @@ module Api
         @user.created_by = current_consumer.email
         if @user.save
           set_udr_name
+          fill_empty_or_null
           respond_with @user, status: :created, location: @user
         else
           render json: @user.errors, status: :unprocessable_entity
@@ -49,6 +50,7 @@ module Api
         end
         @user = User.update(params[:id], params[:user])
         set_udr_name
+        fill_empty_or_null
         normalize_face
         normalize_voice
         respond_with @user
@@ -84,6 +86,21 @@ module Api
             end
           end
           @user.update_attributes(params[:user])
+        end
+        def fill_empty_or_null
+          if @user.avatar.blank?
+            @user.avatar = "http://www.wpclipart.com/people/faces/anonymous/photo_not_available_large.png"
+          end
+          if @user.pref_price.blank?
+            @user.pref_price = "0.5"
+          end
+          if @user.pref_usability.blank?
+            @user.pref_usability = "0.5"
+          end
+          if @user.pref_responsiveness.blank?
+            @user.pref_responsiveness = "0.5"
+          end
+          @user.save
         end
         def normalize_face
           logger.info "Normalizing Face..."
